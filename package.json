@@ -1,7 +1,7 @@
 {
   "name": "sec-c-backend",
   "version": "1.0.0",
-  "description": "SEC-C Authentication Backend",
+  "description": "SEC-C Authentication Backend - Old Version: https://sec-c-security-cybers.netlify.app/",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
