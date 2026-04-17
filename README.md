@@ -7,8 +7,22 @@
 
 ---
 
-## 📽️ Preview
+## 📽️ Preview Video
+Check out the site in action!
 ![Site Preview](./public/site-preview.mp4)
+
+---
+
+## 🖼️ Visual Showcase
+
+<p align="center">
+  <img src="./public/assets/images/hero-banner.png" width="45%" alt="Hero Banner" />
+  <img src="./public/assets/images/body-bg.jpg" width="45%" alt="Background" />
+</p>
+
+<p align="center">
+  <img src="./public/assets/images/logo.png" width="100px" alt="Logo" />
+</p>
 
 ---
 
