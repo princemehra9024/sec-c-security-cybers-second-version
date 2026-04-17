@@ -1,0 +1,1610 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="https://sec-c-security-cybers.netlify.app/ - Gaming Zone - Download 1500+ premium games for free. Action, RPG, Strategy, Horror, Racing games and more.">
+    <meta name="keywords" content="free games, game downloads, gaming zone, pc games, action games, RPG games">
+    <meta name="author" content="Gaming Zone">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="GAMING ZONE | Ultimate Game Store">
+    <meta property="og:description" content="https://sec-c-security-cybers.netlify.app/ - Download 1500+ premium games for free">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="./game-store/cybarpunk.jpg">
+
+    <!-- Page Title -->
+    <title>GAMING ZONE | ULTIMATE ARMORY - 1500+ Free Games</title>
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Koulen&family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&family=Teko:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- ICONS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="store.css">
+</head>
+
+<body>
+
+    <!-- =========================================================================
+          LOADING SCREEN
+    ========================================================================== -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loader-container">
+            <div class="cyber-loader">
+                <div class="loader-circle"></div>
+                <div class="loader-circle"></div>
+                <div class="loader-circle"></div>
+            </div>
+            <div class="loading-text">LOADING GAMING ZONE</div>
+            <div class="loading-bar">
+                <div class="loading-progress" id="loadingProgress"></div>
+            </div>
+            <div class="loading-status" id="loadingStatus">Initializing...</div>
+        </div>
+    </div>
+
+
+    <!-- =========================================================================
+          NAVIGATION HEADER
+    ========================================================================== -->
+    <header class="main-header" id="mainHeader">
+        <div class="header-container">
+            <!-- Brand Logo -->
+            <a href="index.html" class="brand-logo">
+                <i class="fa-solid fa-gamepad logo-icon"></i>
+                <div class="logo-text">
+                    <span class="logo-main">GAMING<span class="logo-accent">ZONE</span></span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation Menu -->
+            <nav class="nav-menu" id="navMenu">
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <a href="index.html" class="menu-link">
+                            <i class="fa-solid fa-house"></i> HOME
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="tournament.html" class="menu-link">
+                            <i class="fa-solid fa-trophy"></i> TOURNAMENTS
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="store.html" class="menu-link">
+                            <i class="fa-solid fa-store"></i> STORE
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="stats.html" class="menu-link">
+                            <i class="fa-solid fa-chart-line"></i> STATS
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="signup.html" class="menu-link">
+                            <i class="fa-solid fa-user-plus"></i> SIGNUP
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="contact.html" class="menu-link">
+                            <i class="fa-solid fa-envelope"></i> CONTACT
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Header Actions -->
+            <div class="header-actions">
+                <!-- Search Button -->
+                <button class="action-btn" id="searchTrigger" title="Search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+                <!-- Wishlist Button -->
+                <button class="action-btn" id="wishlistBtn" title="Wishlist">
+                    <i class="fa-solid fa-heart"></i>
+                    <span class="cart-count" id="wishlistCount">0</span>
+                </button>
+
+                <!-- Cart Button -->
+                <button class="action-btn" id="cartBtn" title="Cart">
+                    <i class="fa-solid fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </button>
+
+                <!-- User Profile -->
+                <button class="user-profile-btn">
+                    <img src="https://ui-avatars.com/api/?name=Gaming+Zone&background=0072ff&color=fff" alt="User"
+                        class="user-avatar">
+                    <span class="user-name">Player</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+
+                <!-- Mobile Toggle Button -->
+                <button class="mobile-toggle-btn" id="mobileToggle">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- =========================================================================
+          MOBILE OVERLAY MENU
+    ========================================================================== -->
+    <div class="mobile-overlay-menu" id="mobileOverlay">
+        <div class="mobile-menu-header">
+            <div class="mobile-logo">
+                <i class="fa-solid fa-gamepad"></i>
+                <span>GAMING<span style="color:#0072ff;">ZONE</span></span>
+            </div>
+            <button class="mobile-close-btn" id="mobileClose">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <nav class="mobile-nav">
+            <ul class="mobile-links">
+                <li>
+                    <a href="index.html" class="mobile-link">
+                        <span><i class="fa-solid fa-house"></i> HOME</span>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="tournament.html" class="mobile-link">
+                        <span><i class="fa-solid fa-trophy"></i> TOURNAMENTS</span>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="store.html" class="mobile-link">
+                        <span><i class="fa-solid fa-store"></i> STORE</span>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="stats.html" class="mobile-link">
+                        <span><i class="fa-solid fa-chart-line"></i> STATS</span>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="signup.html" class="mobile-link">
+                        <span><i class="fa-solid fa-user-plus"></i> SIGNUP</span>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="contact.html" class="mobile-link">
+                        <span><i class="fa-solid fa-envelope"></i> CONTACT</span>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="mobile-menu-footer">
+            <div class="mobile-social">
+                <a href="#" title="Discord"><i class="fa-brands fa-discord"></i></a>
+                <a href="#" title="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                <a href="#" title="Twitch"><i class="fa-brands fa-twitch"></i></a>
+            </div>
+            <button class="mobile-login-btn" onclick="window.location.href='signup.html'">
+                <i class="fa-solid fa-user"></i> LOGIN / REGISTER
+            </button>
+        </div>
+    </div>
+
+
+    <!-- =========================================================================
+          SEARCH OVERLAY
+    ========================================================================== -->
+    <div class="search-overlay" id="searchOverlay">
+        <div class="search-container">
+            <button class="search-close" id="searchClose">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="search-input-wrapper">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input type="text" class="search-input" id="searchInput"
+                    placeholder="Search for games, genres, or platforms..." autocomplete="off">
+                <button class="search-clear" id="searchClear">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="search-suggestions">
+                <div class="suggestion-section">
+                    <h4>Popular Searches</h4>
+                    <div class="suggestion-tags">
+                        <span class="suggestion-tag">Cyberpunk 2077</span>
+                        <span class="suggestion-tag">GTA V</span>
+                        <span class="suggestion-tag">Elden Ring</span>
+                        <span class="suggestion-tag">Spider-Man</span>
+                        <span class="suggestion-tag">God of War</span>
+                    </div>
+                </div>
+
+                <div class="suggestion-section">
+                    <h4>Browse by Genre</h4>
+                    <div class="suggestion-tags">
+                        <span class="suggestion-tag">Action</span>
+                        <span class="suggestion-tag">RPG</span>
+                        <span class="suggestion-tag">Racing</span>
+                        <span class="suggestion-tag">Horror</span>
+                        <span class="suggestion-tag">Strategy</span>
+                        <span class="suggestion-tag">Fighting</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- =========================================================================
+          HERO VIDEO SECTION
+    ========================================================================== -->
+    <section class="hero-video-section" id="heroSection">
+        <!-- Background Video -->
+        <video class="hero-video" autoplay muted loop playsinline id="heroVideo">
+            <source src="WhatsApp Video 2025-12-15 at 9.32.14 AM.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <!-- Video Overlays -->
+        <div class="video-overlay-gradient"></div>
+        <div class="scanline-overlay"></div>
+        <div class="noise-overlay"></div>
+
+        <!-- Hero Content -->
+        <div class="hero-content-wrapper">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fa-solid fa-fire"></i> 1500+ GAMES AVAILABLE
+                </div>
+
+                <h1 class="hero-title">
+                    WELCOME TO<br>
+                    <span class="title-highlight">GAMING ZONE</span>
+                </h1>
+
+                <p class="hero-subtitle">
+                    Gear up. Dive in. Conquer the digital battlefield.
+                </p>
+
+                <!-- Stats Row -->
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="1500">0</div>
+                        <div class="stat-label">Games</div>
+                    </div>
+                    <span class="stat-divider"></span>
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="500">0</div>
+                        <div class="stat-label">Daily Users</div>
+                    </div>
+                    <span class="stat-divider"></span>
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="100">0</div>
+                        <div class="stat-label">% Free</div>
+                    </div>
+                </div>
+
+                <!-- CTA Buttons -->
+                <div class="hero-cta">
+                    <a href="#downloads" class="btn btn-primary btn-hero">
+                        <i class="fa-solid fa-download"></i> EXPLORE NOW
+                    </a>
+                    <a href="#features" class="btn btn-outline btn-hero">
+                        <i class="fa-solid fa-circle-info"></i> LEARN MORE
+                    </a>
+                </div>
+
+                <!-- Features List -->
+                <div class="hero-features">
+                    <div class="feature-item">
+                        <i class="fa-solid fa-check-circle"></i>
+                        <span>100% Free</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fa-solid fa-check-circle"></i>
+                        <span>No Sign-Up Required</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fa-solid fa-check-circle"></i>
+                        <span>Instant Download</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <i class="fa-solid fa-chevron-down"></i>
+        </div>
+    </section>
+
+
+    <!-- =========================================================================
+          CATEGORY BAR
+    ========================================================================== -->
+    <section class="category-bar">
+        <div class="category-container">
+            <div class="category-scroll">
+                <button class="category-chip active" data-category="all">
+                    <i class="fa-solid fa-grid"></i> ALL GAMES
+                </button>
+                <button class="category-chip" data-category="action">
+                    <i class="fa-solid fa-gun"></i> ACTION
+                </button>
+                <button class="category-chip" data-category="rpg">
+                    <i class="fa-solid fa-dragon"></i> RPG
+                </button>
+                <button class="category-chip" data-category="racing">
+                    <i class="fa-solid fa-car"></i> RACING
+                </button>
+                <button class="category-chip" data-category="horror">
+                    <i class="fa-solid fa-ghost"></i> HORROR
+                </button>
+                <button class="category-chip" data-category="strategy">
+                    <i class="fa-solid fa-chess"></i> STRATEGY
+                </button>
+                <button class="category-chip" data-category="fighting">
+                    <i class="fa-solid fa-hand-fist"></i> FIGHTING
+                </button>
+                <button class="category-chip" data-category="sports">
+                    <i class="fa-solid fa-basketball"></i> SPORTS
+                </button>
+                <button class="category-chip" data-category="simulation">
+                    <i class="fa-solid fa-plane"></i> SIMULATION
+                </button>
+                <button class="category-chip" data-category="vr">
+                    <i class="fa-solid fa-vr-cardboard"></i> VR GAMES
+                </button>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- =========================================================================
+          FILTER & SORT SECTION
+    ========================================================================== -->
+    <section class="filter-section">
+        <div class="filter-container">
+            <div class="filter-left">
+                <span class="result-count" id="resultCount">Showing 21 of 1500 games</span>
+
+                <!-- Sort Dropdown -->
+                <div class="sort-dropdown">
+                    <button class="sort-toggle" id="sortToggle">
+                        <i class="fa-solid fa-arrow-down-short-wide"></i>
+                        <span>Sort by: Popular</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+
+                    <div class="sort-menu" id="sortMenu">
+                        <div class="dropdown-item active" data-sort="popular">
+                            <i class="fa-solid fa-fire"></i>
+                            <span>Most Popular</span>
+                        </div>
+                        <div class="dropdown-item" data-sort="newest">
+                            <i class="fa-solid fa-clock"></i>
+                            <span>Newest First</span>
+                        </div>
+                        <div class="dropdown-item" data-sort="rating">
+                            <i class="fa-solid fa-star"></i>
+                            <span>Highest Rated</span>
+                        </div>
+                        <div class="dropdown-item" data-sort="downloads">
+                            <i class="fa-solid fa-download"></i>
+                            <span>Most Downloaded</span>
+                        </div>
+                        <div class="dropdown-item" data-sort="az">
+                            <i class="fa-solid fa-arrow-down-a-z"></i>
+                            <span>A-Z</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- View Toggle -->
+            <div class="view-controls">
+                <button class="view-btn active" data-view="grid" title="Grid View">
+                    <i class="fa-solid fa-grid"></i>
+                </button>
+                <button class="view-btn" data-view="list" title="List View">
+                    <i class="fa-solid fa-list"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- =========================================================================
+          GAME GRID SECTION
+    ========================================================================== -->
+    <section class="game-section" id="downloads">
+        <div class="game-container">
+            <div class="game-grid" id="gameGrid">
+
+                <!-- Game Card 1: Cyberpunk 2077 -->
+                <div class="game-card" data-category="action rpg" data-rating="9.9" data-downloads="1200000"
+                    data-id="game-1">
+                    <div class="game-image">
+                        <img src="game-store/cybarpunk.jpg" alt="Cyberpunk 2077">
+                        <span class="game-badge trending">TRENDING</span>
+                        <div class="quick-actions">
+                            <button class="btn-icon" title="Add to wishlist">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
+                            <button class="btn-icon" title="More info">
+                                <i class="fa-solid fa-circle-info"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Cyberpunk 2077</h3>
+                        <p class="game-desc">Experience the most immersive open-world RPG set in the dystopian Night
+                            City.</p>
+                        <div class="game-meta">
+                            <div class="game-rating">
+                                <span class="rating-stars"><i class="fa-solid fa-star"></i></span>
+                                <span class="rating-value">9.9</span>
+                            </div>
+                            <div class="game-meta-item">
+                                <i class="fa-solid fa-download"></i>
+                                <span>1.2M</span>
+                            </div>
+                            <div class="game-meta-item">
+                                <i class="fa-solid fa-hdd"></i>
+                                <span>70GB</span>
+                            </div>
+                        </div>
+                        <div class="game-tags">
+                            <span class="game-tag">RPG</span>
+                            <span class="game-tag">Open World</span>
+                            <span class="game-tag">Sci-Fi</span>
+                        </div>
+                        <div class="game-actions">
+                            <a href="https://fitgirl-repacks.site/cyberpunk-2077/" class="btn-download" target="_blank">
+                                <i class="fa-solid fa-download"></i> DOWNLOAD
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Card 2: Red Dead Redemption 2 -->
+                <div class="game-card" data-category="action adventure" data-rating="9.8" data-downloads="980000"
+                    data-id="game-2">
+                    <div class="game-image">
+                        <img src="game-store/Red Dead Redemption 2.jpg" alt="Red Dead Redemption 2">
+                        <span class="game-badge new">NEW</span>
+                        <div class="quick-actions">
+                            <button class="btn-icon" title="Add to wishlist">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
+                            <button class="btn-icon" title="More info">
+                                <i class="fa-solid fa-circle-info"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Red Dead Redemption 2</h3>
+                        <p class="game-desc">Epic tale of life in America's unforgiving heartland. Outlaws for life.</p>
+                        <div class="game-meta">
+                            <div class="game-rating">
+                                <span class="rating-stars"><i class="fa-solid fa-star"></i></span>
+                                <span class="rating-value">9.8</span>
+                            </div>
+                            <div class="game-meta-item">
+                                <i class="fa-solid fa-download"></i>
+                                <span>980K</span>
+                            </div>
+                            <div class="game-meta-item">
+                                <i class="fa-solid fa-hdd"></i>
+                                <span>150GB</span>
+                            </div>
+                        </div>
+                        <div class="game-tags">
+                            <span class="game-tag">Action</span>
+                            <span class="game-tag">Western</span>
+                            <span class="game-tag">Story Rich</span>
+                        </div>
+                        <div class="game-actions">
+                            <a href="https://fitgirl-repacks.site/?s=Red+Dead+Redemption+2" class="btn-download"
+                                target="_blank">
+                                <i class="fa-solid fa-download"></i> DOWNLOAD
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Card 3: Ghost of Tsushima -->
+                <div class="game-card" data-category="action adventure" data-rating="9.7" data-downloads="850000"
+                    data-id="game-3">
+                    <div class="game-image">
+                        <img src="game-store/Epic Comeback of Jin Sakai _ Ghost Of Tsushima.jpg"
+                            alt="Ghost of Tsushima">
+                        <div class="quick-actions">
+                            <button class="btn-icon" title="Add to wishlist">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
+                            <button class="btn-icon" title="More info">
+                                <i class="fa-solid fa-circle-info"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Ghost of Tsushima</h3>
+                        <p class="game-desc">Become Jin Sakai, the Ghost, and fight for the freedom of Tsushima.</p>
+                        <div class="game-meta">
+                            <div class="game-rating">
+                                <span class="rating-stars"><i class="fa-solid fa-star"></i></span>
+                                <span class="rating-value">9.7</span>
+                            </div>
+                            <div class="game-meta-item">
+                                <i class="fa-solid fa-download"></i>
+                                <span>850K</span>
+                            </div>
+                            <div class="game-meta-item">
+                                <i class="fa-solid fa-hdd"></i>
+                                <span>60GB</span>
+                            </div>
+                        </div>
+                        <div class="game-tags">
+                            <span class="game-tag">Samurai</span>
+                            <span class="game-tag">Open World</span>
+                            <span class="game-tag">Action</span>
+                        </div>
+                        <div class="game-actions">
+                            <a href="https://fitgirl-repacks.site/?s=Ghost+of+Tsushima" class="btn-download"
+                                target="_blank">
+                                <i class="fa-solid fa-download"></i> DOWNLOAD
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Card 4: Apex Legends -->
+                <div class="game-card" data-category="action shooter" data-rating="9.5" data-downloads="2000000"
+                    data-id="game-4">
+                    <div class="game-image">
+                        <img src="game-store/APEX LEGENDS.jpg" alt="Apex Legends">
+                        <span class="game-badge trending">TRENDING</span>
+                        <div class="quick-actions">
+                            <button class="btn-icon" title="Add to wishlist">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
+                            <button class="btn-icon" title="More info">
+                                <i class="fa-solid fa-circle-info"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Apex Legends</h3>
+                        <p class="game-desc">Master your legend. Outplay the competition in this free-to-play Battle
+                            Royale.</p>
+                        <div class="game-meta">
+                            <div class="game-rating">
+                                <span class="rating-stars"><i class="fa-solid fa-star"></i></span>
+                                <span class="rating-value">9.5</span>
+                            </div>
+                            <div class="game-meta-item">
+                                <i class="fa-solid fa-download"></i>
+                                <span>2M</span>
+                            </div>
+                            <div class="game-meta-item">
+                                <i class="fa-solid fa-hdd"></i>
+                                <span>50GB</span>
+                            </div>
+                        </div>
+                        <div class="game-tags">
+                            <span class="game-tag">Battle Royale</span>
+                            <span class="game-tag">FPS</span>
+                            <span class="game-tag">Multiplayer</span>
+                        </div>
+                        <div class="game-actions">
+                            <a href="https://fitgirl-repacks.site/?s=APEX+LEGENDS" class="btn-download" target="_blank">
+                                <i class="fa-solid fa-download"></i> DOWNLOAD
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Card 5: The Last of Us -->
+                <div class="game-card" data-category="action horror" data-rating="9.9" data-downloads="920000"
+                    data-id="game-5">
+                    <div class="game-image">
+                        <img src="game-store/last of us.jpg" alt="The Last of Us">
+                        <span class="game-badge new">NEW</span>
+                        <div class="quick-actions">
+                            <button class="btn-icon" title="Add to wishlist">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
+                            <button class="btn-icon" title="More info">
+                                <i class="fa-solid fa-circle-info"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">The Last of Us</h3>
+                        <p class="game-desc">Experience the emotional storytelling and unforgettable characters in this
+                            post-apocalyptic thriller.</p>
+                        <div class="game-meta">
+                            <div class="game-rating">
+                                <span class="rating-stars"><i class="fa-solid fa-star"></i></span>
+                                <span class="rating-value">9.9</span>
+                            </div>
+                            <div class="game-meta-item">
+                                <i class="fa-solid fa-download"></i>
+                                <span>920K</span>
+                            </div>
+                            <div class="game-meta-item">
+                                <i class="fa-solid fa-hdd"></i>
+                                <span>65GB</span>
+                            </div>
+                        </div>
+                        <div class="game-tags">
+                            <span class="game-tag">Survival</span>
+                            <span class="game-tag">Story Rich</span>
+                            <span class="game-tag">Horror</span>
+                        </div>
+                        <div class="game-actions">
+                            <a href="https://fitgirl-repacks.site/?s=last+of+us" class="btn-download" target="_blank">
+                                <i class="fa-solid fa-download"></i> DOWNLOAD
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Card 6: Elden Ring -->
+                <div class="game-card" data-category="rpg action" data-rating="9.8" data-downloads="1500000"
+                    data-id="game-6">
+                    <div class="game-image">
+                        <img src="game-store/Elder ring game cover.jpg" alt="Elden Ring">
+                        <span class="game-badge trending">TRENDING</span>
+                        <div class="quick-actions">
+                            <button class="btn-icon" title="Add to wishlist">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
+                            <button class="btn-icon" title="More info">
+                                <i class="fa-solid fa-circle-info"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Elden Ring</h3>
+                        <p class="game-desc">Rise, Tarnished, and be guided by grace to brandish the power of the Elden
+                            Ring.</p>
+                        <div class="game-meta">
+                            <div class="game-rating">
+                                <span class="rating-stars"><i class="fa-solid fa-star"></i></span>
+                                <span class="rating-value">9.8</span>
+                            </div>
+                            <div class="game-meta-item">
+                                <i class="fa-solid fa-download"></i>
+                                <span>1.5M</span>
+                            </div>
+                            <div class="game-meta-item">
+                                <i class="fa-solid fa-hdd"></i>
+                                <span>60GB</span>
+                            </div>
+                        </div>
+                        <div class="game-tags">
+                            <span class="game-tag">Soulslike</span>
+                            <span class="game-tag">RPG</span>
+                            <span class="game-tag">Fantasy</span>
+                        </div>
+                        <div class="game-actions">
+                            <a href="https://fitgirl-repacks.site/?s=ELDEN+RING" class="btn-download" target="_blank">
+                                <i class="fa-solid fa-download"></i> DOWNLOAD
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Card 7: Destiny 2 -->
+                <div class="game-card" data-category="action shooter" data-rating="9.2" data-downloads="1800000"
+                    data-id="game-7">
+                    <div class="game-image">
+                        <img src="game-store/Destiny_ Rising's Loot Boxes Are Surprisingly______.jpg" alt="Destiny 2">
+                        <div class="quick-actions">
+                            <button class="btn-icon" title="Add to wishlist">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
+                            <button class="btn-icon" title="More info">
+                                <i class="fa-solid fa-circle-info"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Destiny 2</h3>
+                        <p class="game-desc">Dive into the world of Destiny 2 to explore the mysteries of the solar
+                            system.</p>
+                        <div class="game-meta">
+                            <div class="game-rating">
+                                <span class="rating-stars"><i class="fa-solid fa-star"></i></span>
+                                <span class="rating-value">9.2</span>
+                            </div>
+                            <div class="game-meta-item">
+                                <i class="fa-solid fa-download"></i>
+                                <span>1.8M</span>
+                            </div>
+                            <div class="game-meta-item">
+                                <i class="fa-solid fa-hdd"></i>
+                                <span>105GB</span>
+                            </div>
+                        </div>
+                        <div class="game-tags">
+                            <span class="game-tag">MMO</span>
+                            <span class="game-tag">FPS</span>
+                            <span class="game-tag">Sci-Fi</span>
+                        </div>
+                        <div class="game-actions">
+                            <a href="https://fitgirl-repacks.site/?s=DESTINY+2" class="btn-download" target="_blank">
+                                <i class="fa-solid fa-download"></i> DOWNLOAD
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Card 8: Call of Duty MW3 -->
+                <div class="game-card" data-category="action shooter" data-rating="9.4" data-downloads="2200000"
+                    data-id="game-8">
+                    <div class="game-image">
+                        <img src="game-store/love mw3.jpg" alt="Call of Duty MW3">
+                        <span class="game-badge trending">TRENDING</span>
+                        <div class="quick-actions">
+                            <button class="btn-icon" title="Add to wishlist">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
+                            <button class="btn-icon" title="More info">
+                                <i class="fa-solid fa-circle-info"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Call of Duty: MW3</h3>
+                        <p class="game-desc">The stakes have never been higher as players take on the role of lethal
+                            Tier One operators.</p>
+                        <div class="game-meta">
+                            <div class="game-rating">
+                                <span class="rating-stars"><i class="fa-solid fa-star"></i></span>
+                                <span class="rating-value">9.4</span>
+                            </div>
+                            <div class="game-meta-item">
+                                <i class="fa-solid fa-download"></i>
+                                <span>2.2M</span>
+                            </div>
+                            <div class="game-meta-item">
+                                <i class="fa-solid fa-hdd"></i>
+                                <span>125GB</span>
+                            </div>
+                        </div>
+                        <div class="game-tags">
+                            <span class="game-tag">FPS</span>
+                            <span class="game-tag">Military</span>
+                            <span class="game-tag">Multiplayer</span>
+                        </div>
+                        <div class="game-actions">
+                            <a href="https://fitgirl-repacks.site/?s=Call+of+Duty+MW3" class="btn-download"
+                                target="_blank">
+                                <i class="fa-solid fa-download"></i> DOWNLOAD
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Card 9: GTA V -->
+                <div class="game-card" data-category="action adventure" data-rating="10.0" data-downloads="5000000"
+                    data-id="game-9">
+                    <div class="game-image">
+                        <img src="game-store/GTA V wallpapers HD _ Fondos de Pantalla.jpg" alt="GTA V">
+                        <span class="game-badge">HOT</span>
+                        <div class="quick-actions">
+                            <button class="btn-icon" title="Add to wishlist">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
+                            <button class="btn-icon" title="More info">
+                                <i class="fa-solid fa-circle-info"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Grand Theft Auto V</h3>
+                        <p class="game-desc">Experience Rockstar Games' critically acclaimed open world game, Grand
+                            Theft Auto V.</p>
+                        <div class="game-meta">
+                            <div class="game-rating">
+                                <span class="rating-stars"><i class="fa-solid fa-star"></i></span>
+                                <span class="rating-value">10.0</span>
+                            </div>
+                            <div class="game-meta-item">
+                                <i class="fa-solid fa-download"></i>
+                                <span>5M</span>
+                            </div>
+                            <div class="game-meta-item">
+                                <i class="fa-solid fa-hdd"></i>
+                                <span>94GB</span>
+                            </div>
+                        </div>
+                        <div class="game-tags">
+                            <span class="game-tag">Open World</span>
+                            <span class="game-tag">Crime</span>
+                            <span class="game-tag">Action</span>
+                        </div>
+                        <div class="game-actions">
+                            <a href="https://fitgirl-repacks.site/grand-theft-auto-iv-complete-edition/"
+                                class="btn-download" target="_blank">
+                                <i class="fa-solid fa-download"></i> DOWNLOAD
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Card 10: Forza Horizon 5 -->
+                <div class="game-card" data-category="racing" data-rating="9.6" data-downloads="1100000"
+                    data-id="game-10">
+                    <div class="game-image">
+                        <img src="game-store/4.jpg" alt="Forza Horizon 5">
+                        <span class="game-badge new">NEW</span>
+                        <div class="quick-actions">
+                            <button class="btn-icon" title="Add to wishlist">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
+                            <button class="btn-icon" title="More info">
+                                <i class="fa-solid fa-circle-info"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Forza Horizon 5</h3>
+                        <p class="game-desc">Your Ultimate Horizon Adventure awaits! Explore the vibrant open world of
+                            Mexico.</p>
+                        <div class="game-meta">
+                            <div class="game-rating">
+                                <span class="rating-stars"><i class="fa-solid fa-star"></i></span>
+                                <span class="rating-value">9.6</span>
+                            </div>
+                            <div class="game-meta-item">
+                                <i class="fa-solid fa-download"></i>
+                                <span>1.1M</span>
+                            </div>
+                            <div class="game-meta-item">
+                                <i class="fa-solid fa-hdd"></i>
+                                <span>110GB</span>
+                            </div>
+                        </div>
+                        <div class="game-tags">
+                            <span class="game-tag">Racing</span>
+                            <span class="game-tag">Open World</span>
+                            <span class="game-tag">Simulation</span>
+                        </div>
+                        <div class="game-actions">
+                            <a href="https://fitgirl-repacks.site/?s=FORZA+HORIZON+5" class="btn-download"
+                                target="_blank">
+                                <i class="fa-solid fa-download"></i> DOWNLOAD
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Card 11: Minecraft -->
+                <div class="game-card" data-category="simulation adventure" data-rating="9.3" data-downloads="3000000"
+                    data-id="game-11">
+                    <div class="game-image">
+                        <img src="game-store/Minecraft_ Java y Bedrock Edition para PC Deluxe Edition.jpg"
+                            alt="Minecraft">
+                        <div class="quick-actions">
+                            <button class="btn-icon" title="Add to wishlist">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
+                            <button class="btn-icon" title="More info">
+                                <i class="fa-solid fa-circle-info"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Minecraft RTX</h3>
+                        <p class="game-desc">Explore infinite worlds and build everything from simple homes to grand
+                            castles.</p>
+                        <div class="game-meta">
+                            <div class="game-rating">
+                                <span class="rating-stars"><i class="fa-solid fa-star"></i></span>
+                                <span class="rating-value">9.3</span>
+                            </div>
+                            <div class="game-meta-item">
+                                <i class="fa-solid fa-download"></i>
+                                <span>3M</span>
+                            </div>
+                            <div class="game-meta-item">
+                                <i class="fa-solid fa-hdd"></i>
+                                <span>5GB</span>
+                            </div>
+                        </div>
+                        <div class="game-tags">
+                            <span class="game-tag">Sandbox</span>
+                            <span class="game-tag">Survival</span>
+                            <span class="game-tag">Building</span>
+                        </div>
+                        <div class="game-actions">
+                            <a href="https://fitgirl-repacks.site/?s=MINECRAFT" class="btn-download" target="_blank">
+                                <i class="fa-solid fa-download"></i> DOWNLOAD
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Card 12: Spider-Man 2 -->
+                <div class="game-card" data-category="action adventure" data-rating="9.8" data-downloads="1300000"
+                    data-id="game-12">
+                    <div class="game-image">
+                        <img src="game-store/sp.jpg" alt="Spider-Man 2">
+                        <span class="game-badge trending">TRENDING</span>
+                        <div class="quick-actions">
+                            <button class="btn-icon" title="Add to wishlist">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
+                            <button class="btn-icon" title="More info">
+                                <i class="fa-solid fa-circle-info"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Marvel's Spider-Man 2</h3>
+                        <p class="game-desc">Be Greater. Together. The incredible power of the symbiote forces Peter and
+                            Miles.</p>
+                        <div class="game-meta">
+                            <div class="game-rating">
+                                <span class="rating-stars"><i class="fa-solid fa-star"></i></span>
+                                <span class="rating-value">9.8</span>
+                            </div>
+                            <div class="game-meta-item">
+                                <i class="fa-solid fa-download"></i>
+                                <span>1.3M</span>
+                            </div>
+                            <div class="game-meta-item">
+                                <i class="fa-solid fa-hdd"></i>
+                                <span>98GB</span>
+                            </div>
+                        </div>
+                        <div class="game-tags">
+                            <span class="game-tag">Action</span>
+                            <span class="game-tag">Superhero</span>
+                            <span class="game-tag">Adventure</span>
+                        </div>
+                        <div class="game-actions">
+                            <a href="https://fitgirl-repacks.site/?s=SPIDER-MAN+2" class="btn-download" target="_blank">
+                                <i class="fa-solid fa-download"></i> DOWNLOAD
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Card 13: Street Fighter 6 -->
+                <div class="game-card" data-category="fighting" data-rating="9.5" data-downloads="750000"
+                    data-id="game-13">
+                    <div class="game-image">
+                        <img src="game-store/STREET FIGHTER 6.jpg" alt="Street Fighter 6">
+                        <span class="game-badge new">NEW</span>
+                        <div class="quick-actions">
+                            <button class="btn-icon" title="Add to wishlist">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
+                            <button class="btn-icon" title="More info">
+                                <i class="fa-solid fa-circle-info"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Street Fighter 6</h3>
+                        <p class="game-desc">Powered by Capcom's proprietary RE ENGINE, Street Fighter 6 spans three
+                            distinct game modes.</p>
+                        <div class="game-meta">
+                            <div class="game-rating">
+                                <span class="rating-stars"><i class="fa-solid fa-star"></i></span>
+                                <span class="rating-value">9.5</span>
+                            </div>
+                            <div class="game-meta-item">
+                                <i class="fa-solid fa-download"></i>
+                                <span>750K</span>
+                            </div>
+                            <div class="game-meta-item">
+                                <i class="fa-solid fa-hdd"></i>
+                                <span>60GB</span>
+                            </div>
+                        </div>
+                        <div class="game-tags">
+                            <span class="game-tag">Fighting</span>
+                            <span class="game-tag">Competitive</span>
+                            <span class="game-tag">Multiplayer</span>
+                        </div>
+                        <div class="game-actions">
+                            <a href="https://fitgirl-repacks.site/?s=STREET+FIGHTER+6" class="btn-download"
+                                target="_blank">
+                                <i class="fa-solid fa-download"></i> DOWNLOAD
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Card 14: Valorant -->
+                <div class="game-card" data-category="action shooter" data-rating="9.1" data-downloads="4000000"
+                    data-id="game-14">
+                    <div class="game-image">
+                        <img src="game-store/Epic Games Store _ Official Site.jpg" alt="Valorant">
+                        <span class="game-badge trending">TRENDING</span>
+                        <div class="quick-actions">
+                            <button class="btn-icon" title="Add to wishlist">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
+                            <button class="btn-icon" title="More info">
+                                <i class="fa-solid fa-circle-info"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Valorant</h3>
+                        <p class="game-desc">Blend your style and experience on a global, competitive stage. 13 rounds
+                            to attack and defend.</p>
+                        <div class="game-meta">
+                            <div class="game-rating">
+                                <span class="rating-stars"><i class="fa-solid fa-star"></i></span>
+                                <span class="rating-value">9.1</span>
+                            </div>
+                            <div class="game-meta-item">
+                                <i class="fa-solid fa-download"></i>
+                                <span>4M</span>
+                            </div>
+                            <div class="game-meta-item">
+                                <i class="fa-solid fa-hdd"></i>
+                                <span>30GB</span>
+                            </div>
+                        </div>
+                        <div class="game-tags">
+                            <span class="game-tag">FPS</span>
+                            <span class="game-tag">Competitive</span>
+                            <span class="game-tag">Tactical</span>
+                        </div>
+                        <div class="game-actions">
+                            <a href="https://playvalorant.com/en-us/" class="btn-download" target="_blank">
+                                <i class="fa-solid fa-download"></i> DOWNLOAD
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Card 15: Rocket League -->
+                <div class="game-card" data-category="sports racing" data-rating="9.0" data-downloads="2500000"
+                    data-id="game-15">
+                    <div class="game-image">
+                        <img src="game-store/valorant agents.jpg" alt="Rocket League">
+                        <div class="quick-actions">
+                            <button class="btn-icon" title="Add to wishlist">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
+                            <button class="btn-icon" title="More info">
+                                <i class="fa-solid fa-circle-info"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Rocket League</h3>
+                        <p class="game-desc">Rocket League is a high-powered hybrid of arcade-style soccer and vehicular
+                            mayhem.</p>
+                        <div class="game-meta">
+                            <div class="game-rating">
+                                <span class="rating-stars"><i class="fa-solid fa-star"></i></span>
+                                <span class="rating-value">9.0</span>
+                            </div>
+                            <div class="game-meta-item">
+                                <i class="fa-solid fa-download"></i>
+                                <span>2.5M</span>
+                            </div>
+                            <div class="game-meta-item">
+                                <i class="fa-solid fa-hdd"></i>
+                                <span>20GB</span>
+                            </div>
+                        </div>
+                        <div class="game-tags">
+                            <span class="game-tag">Sports</span>
+                            <span class="game-tag">Multiplayer</span>
+                            <span class="game-tag">Racing</span>
+                        </div>
+                        <div class="game-actions">
+                            <a href="https://fitgirl-repacks.site/?s=ROCKET+LEAGUE" class="btn-download"
+                                target="_blank">
+                                <i class="fa-solid fa-download"></i> DOWNLOAD
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Card 16: God of War Ragnarok -->
+                <div class="game-card" data-category="action adventure" data-rating="9.9" data-downloads="1400000"
+                    data-id="game-16">
+                    <div class="game-image">
+                        <img src="game-store/God of War Ragnarok Deluxe Edition (PC).jpg" alt="God of War Ragnarok">
+                        <span class="game-badge">HOT</span>
+                        <div class="quick-actions">
+                            <button class="btn-icon" title="Add to wishlist">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
+                            <button class="btn-icon" title="More info">
+                                <i class="fa-solid fa-circle-info"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">God of War: Ragnarök</h3>
+                        <p class="game-desc">Embark on an epic and heartfelt journey as Kratos and Atreus struggle with
+                            holding on and letting go.</p>
+                        <div class="game-meta">
+                            <div class="game-rating">
+                                <span class="rating-stars"><i class="fa-solid fa-star"></i></span>
+                                <span class="rating-value">9.9</span>
+                            </div>
+                            <div class="game-meta-item">
+                                <i class="fa-solid fa-download"></i>
+                                <span>1.4M</span>
+                            </div>
+                            <div class="game-meta-item">
+                                <i class="fa-solid fa-hdd"></i>
+                                <span>190GB</span>
+                            </div>
+                        </div>
+                        <div class="game-tags">
+                            <span class="game-tag">Action</span>
+                            <span class="game-tag">Mythology</span>
+                            <span class="game-tag">Story Rich</span>
+                        </div>
+                        <div class="game-actions">
+                            <a href="https://fitgirl-repacks.site/?s=GOD+OF+WAR+RAGNAROK" class="btn-download"
+                                target="_blank">
+                                <i class="fa-solid fa-download"></i> DOWNLOAD
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Card 17: League of Legends -->
+                <div class="game-card" data-category="strategy" data-rating="8.9" data-downloads="6000000"
+                    data-id="game-17">
+                    <div class="game-image">
+                        <img src="game-store/lol.jpg" alt="League of Legends">
+                        <span class="game-badge trending">TRENDING</span>
+                        <div class="quick-actions">
+                            <button class="btn-icon" title="Add to wishlist">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
+                            <button class="btn-icon" title="More info">
+                                <i class="fa-solid fa-circle-info"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">League of Legends</h3>
+                        <p class="game-desc">Join the fight and make your mark. Master the art of MOBA combat with
+                            intense strategic gameplay.</p>
+                        <div class="game-meta">
+                            <div class="game-rating">
+                                <span class="rating-stars"><i class="fa-solid fa-star"></i></span>
+                                <span class="rating-value">8.9</span>
+                            </div>
+                            <div class="game-meta-item">
+                                <i class="fa-solid fa-download"></i>
+                                <span>6M</span>
+                            </div>
+                            <div class="game-meta-item">
+                                <i class="fa-solid fa-hdd"></i>
+                                <span>16GB</span>
+                            </div>
+                        </div>
+                        <div class="game-tags">
+                            <span class="game-tag">MOBA</span>
+                            <span class="game-tag">Strategy</span>
+                            <span class="game-tag">Competitive</span>
+                        </div>
+                        <div class="game-actions">
+                            <a href="https://www.leagueoflegends.com/" class="btn-download" target="_blank">
+                                <i class="fa-solid fa-download"></i> DOWNLOAD
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Card 18: Overwatch 2 -->
+                <div class="game-card" data-category="action shooter" data-rating="9.3" data-downloads="3500000"
+                    data-id="game-18">
+                    <div class="game-image">
+                        <img src="game-store/5.jpg" alt="Overwatch 2">
+                        <div class="quick-actions">
+                            <button class="btn-icon" title="Add to wishlist">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
+                            <button class="btn-icon" title="More info">
+                                <i class="fa-solid fa-circle-info"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Overwatch 2</h3>
+                        <p class="game-desc">Team-based action gameplay with a roster of unique heroes, each with their
+                            own incredible powers.</p>
+                        <div class="game-meta">
+                            <div class="game-rating">
+                                <span class="rating-stars"><i class="fa-solid fa-star"></i></span>
+                                <span class="rating-value">9.3</span>
+                            </div>
+                            <div class="game-meta-item">
+                                <i class="fa-solid fa-download"></i>
+                                <span>3.5M</span>
+                            </div>
+                            <div class="game-meta-item">
+                                <i class="fa-solid fa-hdd"></i>
+                                <span>50GB</span>
+                            </div>
+                        </div>
+                        <div class="game-tags">
+                            <span class="game-tag">Hero Shooter</span>
+                            <span class="game-tag">FPS</span>
+                            <span class="game-tag">Team-Based</span>
+                        </div>
+                        <div class="game-actions">
+                            <a href="https://fitgirl-repacks.site/?s=OVERWATCH+2" class="btn-download" target="_blank">
+                                <i class="fa-solid fa-download"></i> DOWNLOAD
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Card 19: Dead Space -->
+                <div class="game-card" data-category="horror action" data-rating="9.4" data-downloads="680000"
+                    data-id="game-19">
+                    <div class="game-image">
+                        <img src="game-store/DEAD SPACE.jpg" alt="Dead Space">
+                        <span class="game-badge new">NEW</span>
+                        <div class="quick-actions">
+                            <button class="btn-icon" title="Add to wishlist">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
+                            <button class="btn-icon" title="More info">
+                                <i class="fa-solid fa-circle-info"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Dead Space Remake</h3>
+                        <p class="game-desc">The sci-fi survival horror classic is completely rebuilt from the ground
+                            up.</p>
+                        <div class="game-meta">
+                            <div class="game-rating">
+                                <span class="rating-stars"><i class="fa-solid fa-star"></i></span>
+                                <span class="rating-value">9.4</span>
+                            </div>
+                            <div class="game-meta-item">
+                                <i class="fa-solid fa-download"></i>
+                                <span>680K</span>
+                            </div>
+                            <div class="game-meta-item">
+                                <i class="fa-solid fa-hdd"></i>
+                                <span>50GB</span>
+                            </div>
+                        </div>
+                        <div class="game-tags">
+                            <span class="game-tag">Horror</span>
+                            <span class="game-tag">Survival</span>
+                            <span class="game-tag">Sci-Fi</span>
+                        </div>
+                        <div class="game-actions">
+                            <a href="https://fitgirl-repacks.site/?s=DEAD+SPACE" class="btn-download" target="_blank">
+                                <i class="fa-solid fa-download"></i> DOWNLOAD
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Card 20: Halo Infinite -->
+                <div class="game-card" data-category="action shooter" data-rating="9.2" data-downloads="1600000"
+                    data-id="game-20">
+                    <div class="game-image">
+                        <img src="game-store/halo infinite.jpg" alt="Halo Infinite">
+                        <div class="quick-actions">
+                            <button class="btn-icon" title="Add to wishlist">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
+                            <button class="btn-icon" title="More info">
+                                <i class="fa-solid fa-circle-info"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Halo Infinite</h3>
+                        <p class="game-desc">When all hope is lost and humanity's fate hangs in the balance, Master
+                            Chief is ready to confront.</p>
+                        <div class="game-meta">
+                            <div class="game-rating">
+                                <span class="rating-stars"><i class="fa-solid fa-star"></i></span>
+                                <span class="rating-value">9.2</span>
+                            </div>
+                            <div class="game-meta-item">
+                                <i class="fa-solid fa-download"></i>
+                                <span>1.6M</span>
+                            </div>
+                            <div class="game-meta-item">
+                                <i class="fa-solid fa-hdd"></i>
+                                <span>50GB</span>
+                            </div>
+                        </div>
+                        <div class="game-tags">
+                            <span class="game-tag">FPS</span>
+                            <span class="game-tag">Sci-Fi</span>
+                            <span class="game-tag">Multiplayer</span>
+                        </div>
+                        <div class="game-actions">
+                            <a href="https://fitgirl-repacks.site/?s=HALO+INFINITE" class="btn-download"
+                                target="_blank">
+                                <i class="fa-solid fa-download"></i> DOWNLOAD
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Card 21: Uncharted Legacy -->
+                <div class="game-card" data-category="action adventure" data-rating="9.7" data-downloads="900000"
+                    data-id="game-21">
+                    <div class="game-image">
+                        <img src="game-store/Uncharted_ Legacy of Thieves Collection.jpg" alt="Uncharted Legacy">
+                        <span class="game-badge new">NEW</span>
+                        <div class="quick-actions">
+                            <button class="btn-icon" title="Add to wishlist">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
+                            <button class="btn-icon" title="More info">
+                                <i class="fa-solid fa-circle-info"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Uncharted: Legacy of Thieves</h3>
+                        <p class="game-desc">Play as Nathan Drake and Chloe Frazer in their own standalone adventures.
+                        </p>
+                        <div class="game-meta">
+                            <div class="game-rating">
+                                <span class="rating-stars"><i class="fa-solid fa-star"></i></span>
+                                <span class="rating-value">9.7</span>
+                            </div>
+                            <div class="game-meta-item">
+                                <i class="fa-solid fa-download"></i>
+                                <span>900K</span>
+                            </div>
+                            <div class="game-meta-item">
+                                <i class="fa-solid fa-hdd"></i>
+                                <span>126GB</span>
+                            </div>
+                        </div>
+                        <div class="game-tags">
+                            <span class="game-tag">Adventure</span>
+                            <span class="game-tag">Action</span>
+                            <span class="game-tag">Story Rich</span>
+                        </div>
+                        <div class="game-actions">
+                            <a href="https://fitgirl-repacks.site/uncharted-legacy-of-thieves-collection/"
+                                class="btn-download" target="_blank">
+                                <i class="fa-solid fa-download"></i> DOWNLOAD
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Load More Button -->
+            <div style="text-align: center; margin-top: 60px;">
+                <button class="btn btn-primary" id="loadMoreBtn">
+                    <i class="fa-solid fa-plus"></i> LOAD MORE GAMES
+                </button>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- =========================================================================
+          FEATURES SECTION
+    ========================================================================== -->
+    <section class="features-section" id="features">
+        <div class="features-container">
+            <h2 class="features-title">WHY CHOOSE GAMING ZONE?</h2>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-download"></i>
+                    </div>
+                    <h3 class="feature-title">Instant Downloads</h3>
+                    <p class="feature-desc">Get your games instantly with our high-speed download servers. No waiting,
+                        no delays.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="feature-title">100% Safe & Secure</h3>
+                    <p class="feature-desc">All downloads are scanned and verified. Your safety is our top priority.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-infinity"></i>
+                    </div>
+                    <h3 class="feature-title">Unlimited Access</h3>
+                    <p class="feature-desc">Download as many games as you want. No limits, no restrictions, completely
+                        free.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-clock"></i>
+                    </div>
+                    <h3 class="feature-title">Always Updated</h3>
+                    <p class="feature-desc">Latest versions, patches, and DLCs. Stay up to date with the newest content.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <h3 class="feature-title">Active Community</h3>
+                    <p class="feature-desc">Join thousands of gamers. Share tips, tricks, and gaming experiences.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-headset"></i>
+                    </div>
+                    <h3 class="feature-title">24/7 Support</h3>
+                    <p class="feature-desc">Need help? Our support team is always ready to assist you anytime.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- =========================================================================
+          NEWSLETTER SECTION
+    ========================================================================== -->
+    <section class="newsletter-section">
+        <div class="newsletter-container">
+            <div class="newsletter-content">
+                <i class="fa-solid fa-envelope-open-text newsletter-icon"></i>
+                <h2 class="newsletter-title">STAY IN THE GAME</h2>
+                <p class="newsletter-desc">Subscribe to get the latest game releases, exclusive deals, and gaming news
+                    delivered to your inbox.</p>
+            </div>
+            <form class="newsletter-form" id="newsletterForm">
+                <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+                <button type="submit" class="newsletter-btn">
+                    <i class="fa-solid fa-paper-plane"></i> SUBSCRIBE
+                </button>
+            </form>
+        </div>
+    </section>
+
+
+    <!-- =========================================================================
+          FOOTER
+    ========================================================================== -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <!-- About Column -->
+                <div class="footer-column">
+                    <h4 class="footer-heading">GAMING<span style="color:#0072ff;">ZONE</span></h4>
+                    <p class="footer-text">
+                        The #1 destination for free game downloads. No subscriptions. No hidden fees. Just pure gaming
+                        excellence.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link" title="Discord">
+                            <i class="fa-brands fa-discord"></i>
+                        </a>
+                        <a href="#" class="social-link" title="Twitter">
+                            <i class="fa-brands fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link" title="YouTube">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                        <a href="#" class="social-link" title="Twitch">
+                            <i class="fa-brands fa-twitch"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links Column -->
+                <div class="footer-column">
+                    <h4 class="footer-heading">QUICK LINKS</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="store.html">Browse Games</a></li>
+                        <li><a href="tournament.html">Tournaments</a></li>
+                        <li><a href="stats.html">Leaderboards</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Categories Column -->
+                <div class="footer-column">
+                    <h4 class="footer-heading">CATEGORIES</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" data-category="action">Action Games</a></li>
+                        <li><a href="#" data-category="rpg">RPG Games</a></li>
+                        <li><a href="#" data-category="racing">Racing Games</a></li>
+                        <li><a href="#" data-category="horror">Horror Games</a></li>
+                        <li><a href="#" data-category="strategy">Strategy Games</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal Column -->
+                <div class="footer-column">
+                    <h4 class="footer-heading">LEGAL</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">DMCA Policy</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">Disclaimer</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div class="footer-divider"></div>
+                <p class="footer-copyright">
+                    © 2025 GAMING ZONE. ALL RIGHTS RESERVED. | DESIGNED WITH <i class="fa-solid fa-heart"
+                        style="color: #ff003c;"></i> FOR GAMERS
+                </p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- =========================================================================
+          BACK TO TOP BUTTON
+    ========================================================================== -->
+    <button class="back-to-top" id="backToTop" title="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+
+    <!-- =========================================================================
+          EXTERNAL JAVASCRIPT
+    ========================================================================== -->
+    <script src="store.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>

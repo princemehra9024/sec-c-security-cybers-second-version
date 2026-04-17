@@ -1,0 +1,651 @@
+/* ==========================================================================
+   SEC C | AUTH PROFILE EXTENSION (CENTER PORTAL)
+   Targets only auth + profile UI, reusing Leviathan variables/styles
+   ========================================================================== */
+
+/* 1. AUTH PORTAL – LAYOUT REFINEMENTS
+   -------------------------------------------------------------------------- */
+
+.col-center {
+    position: relative;
+    z-index: 5;
+}
+
+/* Wrap for switching between AUTH and PROFILE view */
+.portal-mainframe {
+    width: 100%;
+    max-width: 520px;
+    background: var(--c-glass-base);
+    border: 1px solid var(--c-border-base);
+    position: relative;
+    padding: 45px 50px;
+    box-shadow: var(--shadow-deep);
+    backdrop-filter: var(--blur-glass);
+    overflow: hidden;
+}
+
+/* When profile is active you can add .profile-mode on portal-mainframe */
+.portal-mainframe.profile-mode {
+    max-width: 1100px;
+    padding: 35px 40px;
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 28px;
+}
+
+/* 2. AUTH HEADER – GLITCH TITLE + SUBTITLE
+   -------------------------------------------------------------------------- */
+
+.portal-head {
+    text-align: center;
+    padding: 38px 15px 22px;
+    position: relative;
+}
+
+.portal-head .main-h1 {
+    font-size: 2.7rem;
+    letter-spacing: 0.18em;
+}
+
+.portal-head .main-h1::before,
+.portal-head .main-h1::after {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    mix-blend-mode: screen;
+    opacity: 0.0;
+}
+
+.portal-head .main-h1::before {
+    color: var(--c-sec-500);
+    transform: translate(0);
+}
+
+.portal-head .main-h1::after {
+    color: var(--c-crit-500);
+    transform: translate(0);
+}
+
+.portal-head .main-h1.glitch-text:hover::before {
+    animation: auth-glitch-1 260ms steps(2,end) infinite;
+}
+
+.portal-head .main-h1.glitch-text:hover::after {
+    animation: auth-glitch-2 260ms steps(2,end) infinite;
+}
+
+@keyframes auth-glitch-1 {
+    0% { opacity: 0; transform: translate(-2px, 2px); }
+    50% { opacity: 0.7; transform: translate(2px, -1px); }
+    100% { opacity: 0; transform: translate(0, 0); }
+}
+
+@keyframes auth-glitch-2 {
+    0% { opacity: 0; transform: translate(2px, -2px); }
+    50% { opacity: 0.7; transform: translate(-2px, 1px); }
+    100% { opacity: 0; transform: translate(0, 0); }
+}
+
+.sub-h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 10px;
+    opacity: 0.85;
+}
+
+.sub-h1 .txt {
+    font-family: var(--font-code);
+    font-size: 0.7rem;
+    letter-spacing: 0.28em;
+}
+
+.sub-h1 .line {
+    width: 48px;
+}
+
+/* 3. AUTH SWITCHER (LOGIN / REGISTER / QR)
+   -------------------------------------------------------------------------- */
+
+.auth-switcher {
+    display: inline-flex;
+    justify-content: center;
+    gap: 22px;
+    margin: 10px auto 28px;
+    padding: 5px 18px;
+    background: radial-gradient(circle at center, rgba(0,0,0,0.8), transparent 80%);
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.as-btn {
+    position: relative;
+    font-family: var(--font-condensed);
+    font-size: 1.25rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 6px 8px;
+    color: var(--c-text-low);
+}
+
+.as-btn i {
+    margin-right: 6px;
+}
+
+.as-btn::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 2px;
+    background: var(--c-prim-500);
+    box-shadow: 0 0 8px var(--c-prim-glow);
+    transition: width 0.25s var(--ease-snap);
+}
+
+.as-btn:hover {
+    color: var(--c-text-high);
+}
+
+.as-btn.active {
+    color: var(--c-prim-500);
+    text-shadow: 0 0 16px var(--c-prim-glow);
+}
+
+.as-btn.active::after {
+    width: 100%;
+}
+
+/* 4. FORM STAGE – SCROLL + SMOOTH TRANSITIONS
+   -------------------------------------------------------------------------- */
+
+.forms-stage {
+    padding: 0 46px 26px;
+    max-height: 440px;
+    overflow-y: auto;
+}
+
+.forms-stage::-webkit-scrollbar {
+    width: 4px;
+}
+
+.forms-stage::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.15);
+    border-radius: 999px;
+}
+
+.cyber-form {
+    display: none;
+    flex-direction: column;
+    gap: 22px;
+    animation: slide-in-bot 0.35s var(--ease-snap);
+}
+
+.cyber-form.active-form {
+    display: flex;
+}
+
+.qr-mode {
+    align-items: center;
+    text-align: center;
+}
+
+/* 5. INPUTS – SMALL TWEAKS FOR SHINE
+   -------------------------------------------------------------------------- */
+
+.input-group {
+    margin-bottom: 4px;
+}
+
+.input-group label {
+    display: block;
+    font-family: var(--font-code);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 6px;
+}
+
+.inp-box {
+    height: 50px;
+    border-radius: 0;
+    clip-path: var(--clip-notch-sm);
+}
+
+.inp-box input,
+.inp-box select {
+    font-size: 0.96rem;
+}
+
+.inp-box .prefix {
+    min-width: 62px;
+}
+
+/* Password eye icon alignment */
+.eye-reveal {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+/* Password strength bars re-style */
+.pw-strength-visual {
+    margin-top: 9px;
+}
+
+.pw-strength-visual .seg {
+    border-radius: 999px;
+}
+
+/* 6. PRIMARY / SECONDARY ACTION BUTTONS
+   -------------------------------------------------------------------------- */
+
+.action-btn {
+    margin-top: 14px;
+    font-size: 1.05rem;
+}
+
+.action-btn .btn-content,
+.action-btn .btn-content i {
+    position: relative;
+    z-index: 2;
+}
+
+/* 7. QR AUTH PANEL
+   -------------------------------------------------------------------------- */
+
+.qr-mode .qr-frame-box {
+    max-width: 210px;
+}
+
+.qr-mode .qr-text {
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+}
+
+.qr-mode .qr-timer {
+    margin-top: 6px;
+}
+
+/* 8. PORTAL FOOTER – MINI STATUS STRIP
+   -------------------------------------------------------------------------- */
+
+.portal-foot {
+    margin-top: 18px;
+    padding-top: 12px;
+}
+
+/* 9. PROFILE VIEW – LEFT SIDEBAR CARD
+   -------------------------------------------------------------------------- */
+
+.profile-left {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* Wrapper when portal-mainframe is in profile mode – add in HTML via JS */
+.portal-mainframe.profile-mode .profile-left,
+.portal-mainframe.profile-mode .profile-right {
+    animation: slide-in-bot 0.4s var(--ease-snap);
+}
+
+/* User identity card */
+.profile-card {
+    background: rgba(0,0,0,0.75);
+    border: 1px solid var(--c-border-base);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+    padding-bottom: 16px;
+    position: relative;
+}
+
+.profile-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0,255,136,0.25), transparent 40%, rgba(0,243,255,0.25) 70%, transparent 100%);
+    mix-blend-mode: soft-light;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s var(--ease-smooth);
+}
+
+.profile-card:hover::before {
+    opacity: 1;
+}
+
+.profile-banner {
+    height: 110px;
+    background: radial-gradient(circle at 20% 0%, rgba(0,255,136,0.3), transparent 55%),
+                radial-gradient(circle at 90% 0%, rgba(0,243,255,0.3), transparent 55%);
+    position: relative;
+    overflow: hidden;
+}
+
+.profile-banner::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, transparent 0, rgba(255,255,255,0.25) 45%, transparent 90%);
+    opacity: 0;
+    transform: translateX(-40%);
+    transition: transform 0.8s var(--ease-snap), opacity 0.8s var(--ease-snap);
+}
+
+.profile-card:hover .profile-banner::after {
+    opacity: 1;
+    transform: translateX(40%);
+}
+
+.profile-avatar-wrap {
+    position: relative;
+    width: 110px;
+    height: 110px;
+    margin: -55px auto 10px;
+    border-radius: 50%;
+    border: 3px solid var(--c-void);
+    box-shadow: 0 0 0 3px var(--c-prim-500), 0 0 25px var(--c-prim-glow);
+    overflow: hidden;
+    background: #000;
+}
+
+.profile-avatar-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-avatar-status {
+    position: absolute;
+    right: 6px;
+    bottom: 6px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--c-prim-500);
+    box-shadow: 0 0 10px var(--c-prim-glow);
+    border: 2px solid #000;
+}
+
+.profile-meta {
+    text-align: center;
+    padding: 0 18px 10px;
+}
+
+.profile-meta .alias {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+}
+
+.profile-meta .real-name {
+    font-size: 0.85rem;
+    color: var(--c-text-med);
+    margin-bottom: 4px;
+}
+
+.profile-meta .email {
+    font-size: 0.8rem;
+    color: var(--c-text-low);
+    font-family: var(--font-code);
+}
+
+/* Tiny stat strip under avatar */
+.profile-mini-stats {
+    display: flex;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    margin-top: 8px;
+}
+
+.profile-mini-stats .mini-stat {
+    flex: 1;
+    padding: 10px 8px;
+    text-align: center;
+    border-right: 1px solid rgba(255,255,255,0.06);
+}
+
+.profile-mini-stats .mini-stat:last-child {
+    border-right: none;
+}
+
+.profile-mini-stats .label {
+    display: block;
+    font-size: 0.72rem;
+    color: var(--c-text-low);
+    font-family: var(--font-code);
+    letter-spacing: 0.08em;
+    margin-bottom: 3px;
+}
+
+.profile-mini-stats .value {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+}
+
+/* 10. PROFILE – RIGHT CONTENT (DASHBOARD-STYLE)
+   -------------------------------------------------------------------------- */
+
+.profile-right {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* Welcome banner */
+.profile-welcome {
+    background: radial-gradient(circle at 0 0, rgba(0,255,136,0.1), transparent 60%) ,
+                radial-gradient(circle at 100% 0, rgba(0,243,255,0.1), transparent 60%);
+    border: 1px solid var(--c-border-base);
+    padding: 18px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profile-welcome-main h2 {
+    font-size: 1.5rem;
+    letter-spacing: 0.16em;
+}
+
+.profile-welcome-main h2 span {
+    color: var(--c-prim-500);
+}
+
+.profile-welcome-main p {
+    font-size: 0.8rem;
+    font-family: var(--font-code);
+    color: var(--c-text-med);
+}
+
+.profile-welcome-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.profile-welcome-actions .btn {
+    padding: 9px 16px;
+    font-size: 0.8rem;
+    font-family: var(--font-display);
+    letter-spacing: 0.12em;
+    border: 1px solid var(--c-prim-500);
+    text-transform: uppercase;
+    cursor: pointer;
+    background: transparent;
+    color: var(--c-prim-500);
+    clip-path: var(--clip-tag);
+    transition: 0.25s var(--ease-snap);
+}
+
+.profile-welcome-actions .btn.primary {
+    background: var(--c-prim-500);
+    color: #000;
+}
+
+.profile-welcome-actions .btn:hover {
+    box-shadow: 0 0 18px var(--c-prim-glow);
+    transform: translateY(-1px);
+}
+
+/* Stats grid in profile view */
+.profile-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0,1fr));
+    gap: 12px;
+}
+
+.profile-stat-card {
+    background: rgba(0,0,0,0.7);
+    border: 1px solid var(--c-border-base);
+    padding: 10px 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.profile-stat-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,0.03);
+    font-size: 1.1rem;
+}
+
+.profile-stat-body {
+    flex: 1;
+}
+
+.profile-stat-body .label {
+    font-size: 0.7rem;
+    color: var(--c-text-low);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.profile-stat-body .value {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+}
+
+/* Different colors per stat (you can tweak) */
+.profile-stat-card.kills .profile-stat-icon {
+    color: var(--c-crit-500);
+}
+.profile-stat-card.wins .profile-stat-icon {
+    color: var(--c-warn-500);
+}
+.profile-stat-card.xp .profile-stat-icon {
+    color: var(--c-sec-500);
+}
+.profile-stat-card.credits .profile-stat-icon {
+    color: var(--c-prim-500);
+}
+
+/* Recent activity list */
+.profile-activity {
+    background: rgba(0,0,0,0.75);
+    border: 1px solid var(--c-border-base);
+    padding: 16px 16px 10px;
+}
+
+.profile-activity-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.profile-activity-header h3 {
+    font-size: 0.95rem;
+}
+
+.profile-activity-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 160px;
+    overflow-y: auto;
+}
+
+.profile-activity-item {
+    display: flex;
+    gap: 9px;
+    font-size: 0.8rem;
+    padding: 7px 6px;
+    border-left: 2px solid transparent;
+    transition: 0.2s var(--ease-smooth);
+}
+
+.profile-activity-item:hover {
+    background: rgba(255,255,255,0.02);
+    border-color: var(--c-prim-500);
+}
+
+.profile-activity-icon {
+    width: 22px;
+    text-align: center;
+}
+
+.profile-activity-body .title {
+    display: block;
+    color: var(--c-text-high);
+}
+
+.profile-activity-body .time {
+    display: block;
+    color: var(--c-text-low);
+    font-size: 0.7rem;
+    font-family: var(--font-code);
+}
+
+/* 11. RESPONSIVE TWEAKS
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 1024px) {
+    .portal-mainframe.profile-mode {
+        max-width: 100%;
+        grid-template-columns: 1fr;
+        padding: 30px 26px;
+    }
+
+    .profile-stats-grid {
+        grid-template-columns: repeat(2, minmax(0,1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .portal-mainframe {
+        padding: 30px 22px;
+    }
+
+    .forms-stage {
+        padding: 0 24px 18px;
+    }
+
+    .auth-switcher {
+        padding: 4px 10px;
+        gap: 14px;
+    }
+
+    .portal-mainframe.profile-mode {
+        padding: 26px 18px;
+    }
+
+    .profile-welcome {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .profile-stats-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}

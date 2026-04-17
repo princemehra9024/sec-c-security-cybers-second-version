@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- 
+    ##############################################################################################
+    #                                                                                            #
+    #   SEC C | ARMORY & LOGISTICS HUB [TITAN BUILD v.20.0]                                      #
+    #   ARCHITECT: PERPLEXITY AI SYSTEM                                                          #
+    #   MODULE: OMEGA_COMMERCE_FRAMEWORK                                                         #
+    #   STATUS: ULTRA-MOBILE READY // PRODUCTION                                                 #
+    #                                                                                            #
+    #   [SYSTEM MANIFEST]                                                                        #
+    #   - CORE: HTML5 / CSS3 / ES6+                                                              #
+    #   - UI: 3-Column Liquid Layout (Sidebar / Grid / Cart)                                     #
+    #   - LOGIC: Real-time Filtering, Cart Math, Modal Injection                                 #
+    #   - VISUALS: Glassmorphism, Neon Glows, Particle Physics                                   #
+    #                                                                                            #
+    ##############################################################################################
+    -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="https://sec-c-security-cybers.netlify.app/ - SEC C - Advanced Tactical Gear and Cybernetic Enhancements. Verified Armory.">
+    <meta name="theme-color" content="#00ff88">
+    <title>SEC C | ARMORY // OMEGA</title>
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&family=Teko:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- ICONS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <!-- LINK EXTERNAL CSS -->
+    <link rel="stylesheet" href="products.css">
+
+    <!-- INLINE CRITICAL CSS FIX FOR IMAGES -->
+    <style>
+        .pc-img-box {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            background: #050505;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .pc-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* ENSURES IMAGE FILLS BOX WITHOUT DISTORTION */
+            object-position: center;
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            opacity: 0.9;
+            z-index: 1;
+            /* ENSURE IT'S ABOVE BACKGROUND */
+            display: block;
+            /* REMOVE INLINE GAP */
+        }
+
+        .prod-card:hover .pc-img {
+            transform: scale(1.1);
+            opacity: 1;
+        }
+
+        /* FALLBACK PLACEHOLDER STYLE */
+        .img-fallback {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(circle, #1a1a1a 0%, #000 100%);
+            color: #333;
+            font-family: 'Share Tech Mono', monospace;
+            text-align: center;
+        }
+
+        .img-fallback i {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: var(--c-prim, #00ff88);
+            opacity: 0.5;
+        }
+
+        .img-fallback span {
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        /* GLOW OVERLAY FIX */
+        .pc-glow {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, transparent 30%, #000 100%);
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .scan-line {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: rgba(0, 255, 136, 0.5);
+            box-shadow: 0 0 10px rgba(0, 255, 136, 0.8);
+            z-index: 3;
+            animation: scan 3s linear infinite;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        @keyframes scan {
+            0% {
+                top: 0%;
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                top: 100%;
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body class="armory-body">
+
+    <!-- 
+    =========================================================================================
+       BACKGROUND ENGINE (LAYER 0)
+    =========================================================================================
+    -->
+    <div class="viewport-bg">
+        <div class="grid-floor"></div>
+        <div class="vignette"></div>
+        <div class="scanlines"></div>
+        <div class="particle-layer">
+            <div class="p p1"></div>
+            <div class="p p2"></div>
+            <div class="p p3"></div>
+            <div class="p p4"></div>
+            <div class="p p5"></div>
+            <div class="p p6"></div>
+        </div>
+    </div>
+
+    <!-- 
+    =========================================================================================
+       MAIN INTERFACE (LAYER 1)
+    =========================================================================================
+    -->
+    <div class="titan-layout">
+
+        <!-- 
+        #################################################################################
+        #   [LEFT] COMMAND PANEL                                                        #
+        #################################################################################
+        -->
+        <aside class="left-panel custom-scrollbar" id="leftPanel">
+
+            <!-- HEADER -->
+            <div class="lp-header">
+                <i class="fa-solid fa-shield-virus header-icon"></i>
+                <div class="lp-brand">
+                    <span class="top">SEC<span style="color:var(--c-prim)">C</span></span>
+                    <span class="bot">ARMORY_DIV</span>
+                </div>
+                <!-- MOBILE CLOSE BUTTON -->
+                <button class="mob-close-btn" onclick="togglePanel('left')">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- SCROLLABLE CONTENT -->
+            <div class="lp-content">
+
+                <!-- NAVIGATION LINKS -->
+                <div class="nav-section">
+                    <div class="section-label">
+                        <i class="fa-solid fa-caret-right"></i> NAVIGATION_PROTOCOLS
+                    </div>
+                    <a href="index.html" class="nav-home-btn">
+                        <i class="fa-solid fa-house-signal"></i>
+                        <span>RETURN_BASE</span>
+                        <div class="hover-bar"></div>
+                    </a>
+                    <a href="stats.html" class="nav-link-item">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <span>BATTLE_STATS</span>
+                    </a>
+                    <a href="tournament.html" class="nav-link-item">
+                        <i class="fa-solid fa-trophy"></i>
+                        <span>TOURNAMENTS</span>
+                    </a>
+                    <a href="store.html" class="nav-link-item">
+                        <i class="fa-solid fa-store"></i>
+                        <span>OFFICIAL_STORE</span>
+                    </a>
+                </div>
+
+                <!-- CATEGORY FILTERS -->
+                <div class="filter-section">
+                    <div class="section-label">
+                        <i class="fa-solid fa-caret-right"></i> SECTOR_ACCESS
+                    </div>
+
+                    <button class="filter-btn active" onclick="resetFilters()">
+                        <div class="fb-icon"><i class="fa-solid fa-layer-group"></i></div>
+                        <div class="fb-text">
+                            <span class="fb-title">ALL_ASSETS</span>
+                            <span class="fb-sub">FULL_DB_ACCESS</span>
+                        </div>
+                        <span class="count-tag">MAX</span>
+                    </button>
+
+                    <button class="filter-btn" onclick="filterCategory('apparel')">
+                        <div class="fb-icon"><i class="fa-solid fa-shirt"></i></div>
+                        <div class="fb-text">
+                            <span class="fb-title">APPAREL</span>
+                            <span class="fb-sub">ARMOR & SUITS</span>
+                        </div>
+                        <span class="count-tag">12</span>
+                    </button>
+
+                    <button class="filter-btn" onclick="filterCategory('tech')">
+                        <div class="fb-icon"><i class="fa-solid fa-microchip"></i></div>
+                        <div class="fb-text">
+                            <span class="fb-title">TECH_GEAR</span>
+                            <span class="fb-sub">IMPLANTS & DECKS</span>
+                        </div>
+                        <span class="count-tag">08</span>
+                    </button>
+
+                    <button class="filter-btn" onclick="filterCategory('weapons')">
+                        <div class="fb-icon"><i class="fa-solid fa-gun"></i></div>
+                        <div class="fb-text">
+                            <span class="fb-title">WEAPONRY</span>
+                            <span class="fb-sub">LETHAL & NON-LETHAL</span>
+                        </div>
+                        <span class="count-tag">05</span>
+                    </button>
+
+                    <button class="filter-btn disabled">
+                        <div class="fb-icon"><i class="fa-solid fa-biohazard"></i></div>
+                        <div class="fb-text">
+                            <span class="fb-title">BIO_AGENTS</span>
+                            <span class="fb-sub">RESTRICTED_ACCESS</span>
+                        </div>
+                        <span class="count-tag"><i class="fa-solid fa-lock"></i></span>
+                    </button>
+                </div>
+
+                <!-- RARITY FILTERS -->
+                <div class="config-section">
+                    <div class="section-label">
+                        <i class="fa-solid fa-caret-right"></i> RARITY_CONFIG
+                    </div>
+                    <div class="rarity-grid">
+                        <button class="rf-btn legendary" onclick="filterRarity('legendary')">
+                            <i class="fa-solid fa-star"></i> LEGENDARY
+                        </button>
+                        <button class="rf-btn epic" onclick="filterRarity('epic')">
+                            <i class="fa-solid fa-dragon"></i> EPIC
+                        </button>
+                        <button class="rf-btn rare" onclick="filterRarity('rare')">
+                            <i class="fa-solid fa-gem"></i> RARE
+                        </button>
+                        <button class="rf-btn common" onclick="filterRarity('common')">
+                            <i class="fa-solid fa-circle"></i> COMMON
+                        </button>
+                    </div>
+                </div>
+
+                <!-- MANUFACTURER LIST -->
+                <div class="manu-section">
+                    <div class="section-label">
+                        <i class="fa-solid fa-caret-right"></i> MANUFACTURERS
+                    </div>
+                    <ul class="manu-list">
+                        <li>
+                            <label class="cyber-check">
+                                <input type="checkbox" checked>
+                                <span class="chk-box"></span>
+                                <span class="lbl">ARASAKA_CORP</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="cyber-check">
+                                <input type="checkbox" checked>
+                                <span class="chk-box"></span>
+                                <span class="lbl">MILITECH_INTL</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="cyber-check">
+                                <input type="checkbox" checked>
+                                <span class="chk-box"></span>
+                                <span class="lbl">KANG_TAO</span>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- PRICE SLIDER -->
+                <div class="limit-section">
+                    <div class="section-label">
+                        <i class="fa-solid fa-caret-right"></i> CREDIT_LIMIT
+                    </div>
+                    <div class="price-slider-box">
+                        <div class="slider-track">
+                            <input type="range" min="0" max="10000" value="10000" class="cyber-range" id="priceRange">
+                            <div class="track-fill"></div>
+                        </div>
+                        <div class="range-readout">
+                            <span class="min">0</span>
+                            <span class="curr" id="priceDisplay">10k <small>CR</small></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SYSTEM LOGS -->
+                <div class="sys-logs">
+                    <div class="log-header">/// SYSTEM_LOG ///</div>
+                    <div class="log-content custom-scrollbar">
+                        <div class="log-line">> CONNECTING TO SERVER... <span class="ok">OK</span></div>
+                        <div class="log-line">> VERIFYING USER ID... <span class="ok">OK</span></div>
+                        <div class="log-line">> FETCHING_ASSETS_DB... <span class="ok">OK</span></div>
+                        <div class="log-line success">> ACCESS GRANTED: LVL 5</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- USER FOOTER -->
+            <div class="lp-footer">
+                <div class="user-card">
+                    <div class="ava-box">
+                        <img src="https://ui-avatars.com/api/?name=Viper&background=00ff88&color=000" class="user-ava"
+                            alt="User">
+                        <div class="status-dot"></div>
+                    </div>
+                    <div class="user-info">
+                        <span class="name">OPERATOR_7</span>
+                        <span class="rank">CLEARANCE: OMEGA</span>
+                    </div>
+                    <button class="settings-btn"><i class="fa-solid fa-gear"></i></button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- 
+        #################################################################################
+        #   [CENTER] GRID & SEARCH                                                      #
+        #################################################################################
+        -->
+        <main class="center-panel">
+
+            <!-- TOP BAR -->
+            <div class="cp-topbar">
+                <div class="search-container">
+                    <div class="search-wrap">
+                        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                        <input type="text" id="searchInput" class="cyber-input" placeholder="SEARCH_DATABASE..."
+                            autocomplete="off">
+                        <div class="search-anim"></div>
+                    </div>
+                    <button class="voice-search-btn" title="Voice Command">
+                        <i class="fa-solid fa-microphone"></i>
+                        <div class="pulse-ring"></div>
+                    </button>
+                </div>
+
+                <div class="top-actions">
+                    <button class="action-btn has-dot"><i class="fa-solid fa-bell"></i></button>
+                    <button class="action-btn"><i class="fa-solid fa-envelope"></i></button>
+                    <div class="region-selector">
+                        <i class="fa-solid fa-globe"></i> <span>NA_EAST</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ANALYTICS DASHBOARD -->
+            <div class="analytics-strip">
+                <div class="as-left">
+                    <div class="as-icon"><i class="fa-solid fa-arrow-trend-down"></i></div>
+                    <div class="as-info">
+                        <h3>MARKET_TRENDS // LIVE</h3>
+                        <p>Arasaka supply chain disrupted. Prices unstable in Sector 4.</p>
+                        <div class="tags-row">
+                            <span class="trend-tag negative">-2.4% DROP</span>
+                            <span class="trend-tag neutral">VOL: HIGH</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="as-right">
+                    <div class="mini-chart">
+                        <div class="bar" style="height:40%"></div>
+                        <div class="bar" style="height:70%"></div>
+                        <div class="bar" style="height:50%"></div>
+                        <div class="bar" style="height:90%"></div>
+                        <div class="bar" style="height:60%"></div>
+                        <div class="bar" style="height:80%"></div>
+                        <div class="bar" style="height:45%"></div>
+                        <div class="bar" style="height:75%"></div>
+                        <div class="bar" style="height:55%"></div>
+                        <div class="bar" style="height:85%"></div>
+                    </div>
+                    <div class="chart-label">24H VOLUME</div>
+                </div>
+            </div>
+
+            <!-- PRODUCT GRID CONTAINER -->
+            <div class="product-grid custom-scrollbar" id="gridTarget">
+
+                <!-- 
+                     STATIC EXAMPLE CARDS 
+                     (WITH YOUR LOCAL IMAGE PATHS)
+                -->
+
+                <!-- Card 1: Jacket (Using 'jaket.png') -->
+                <article class="prod-card legendary" onclick="openModal('1')">
+                    <div class="pc-head">
+                        <span class="pc-badge">LEGENDARY</span>
+                        <button class="pc-fav"><i class="fa-regular fa-heart"></i></button>
+                    </div>
+                    <div class="pc-img-box">
+                        <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&w=1936&auto=format&fit=crop" alt="Cyber Jacket" class="pc-img"
+                            onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'img-fallback\'><i class=\'fa-solid fa-triangle-exclamation\'></i><span>IMG_ERR</span></div>'">
+                        <div class="pc-glow"></div>
+                        <div class="scan-line"></div>
+                    </div>
+                    <div class="pc-body">
+                        <div class="pc-meta">
+                            <span class="brand">MILITECH</span>
+                            <span class="stock">IN_STOCK</span>
+                        </div>
+                        <h3 class="pc-title">ARMORED JACKET MK.V</h3>
+                        <div class="pc-stats">
+                            <div class="stat"><i class="fa-solid fa-shield"></i> 95</div>
+                            <div class="stat"><i class="fa-solid fa-bolt"></i> HIGH</div>
+                        </div>
+                    </div>
+                    <div class="pc-foot">
+                        <span class="pc-price">4,500 <small>CR</small></span>
+                        <button class="pc-add"><i class="fa-solid fa-plus"></i></button>
+                    </div>
+                </article>
+
+                <!-- Card 2: Cap (Using 'cap.png') -->
+                <article class="prod-card epic" onclick="openModal('2')">
+                    <div class="pc-head">
+                        <span class="pc-badge">EPIC</span>
+                        <button class="pc-fav"><i class="fa-regular fa-heart"></i></button>
+                    </div>
+                    <div class="pc-img-box">
+                        <img src="https://images.unsplash.com/photo-1588850561407-ed78c282e89b?q=80&w=2070&auto=format&fit=crop" alt="Cyber Cap" class="pc-img"
+                            onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'img-fallback\'><i class=\'fa-solid fa-triangle-exclamation\'></i><span>IMG_ERR</span></div>'">
+                        <div class="pc-glow"></div>
+                    </div>
+                    <div class="pc-body">
+                        <div class="pc-meta">
+                            <span class="brand">ARASAKA</span>
+                            <span class="stock warn">LOW_STOCK</span>
+                        </div>
+                        <h3 class="pc-title">TACTICAL CAP v.3</h3>
+                        <div class="pc-stats">
+                            <div class="stat"><i class="fa-solid fa-microchip"></i> 128TB</div>
+                            <div class="stat"><i class="fa-solid fa-wifi"></i> 5G</div>
+                        </div>
+                    </div>
+                    <div class="pc-foot">
+                        <span class="pc-price">2,800 <small>CR</small></span>
+                        <button class="pc-add"><i class="fa-solid fa-plus"></i></button>
+                    </div>
+                </article>
+
+                <!-- Card 3: Belt (Using 'balte.png') -->
+                <article class="prod-card rare" onclick="openModal('3')">
+                    <div class="pc-head">
+                        <span class="pc-badge">RARE</span>
+                        <button class="pc-fav"><i class="fa-regular fa-heart"></i></button>
+                    </div>
+                    <div class="pc-img-box">
+                        <img src="https://images.unsplash.com/photo-1614165933076-020612470120?q=80&w=2070&auto=format&fit=crop" alt="Utility Belt" class="pc-img"
+                            onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'img-fallback\'><i class=\'fa-solid fa-triangle-exclamation\'></i><span>IMG_ERR</span></div>'">
+                        <div class="pc-glow"></div>
+                    </div>
+                    <div class="pc-body">
+                        <div class="pc-meta">
+                            <span class="brand">KANG TAO</span>
+                            <span class="stock">IN_STOCK</span>
+                        </div>
+                        <h3 class="pc-title">GRAV-BELT GEN.2</h3>
+                        <div class="pc-stats">
+                            <div class="stat"><i class="fa-solid fa-person-running"></i> +20%</div>
+                            <div class="stat"><i class="fa-solid fa-feather"></i> LIGHT</div>
+                        </div>
+                    </div>
+                    <div class="pc-foot">
+                        <span class="pc-price">1,200 <small>CR</small></span>
+                        <button class="pc-add"><i class="fa-solid fa-plus"></i></button>
+                    </div>
+                </article>
+
+                <!-- Card 4: Gloves (Using 'glaves1.png') -->
+                <article class="prod-card common" onclick="openModal('4')">
+                    <div class="pc-head">
+                        <span class="pc-badge">COMMON</span>
+                        <button class="pc-fav"><i class="fa-regular fa-heart"></i></button>
+                    </div>
+                    <div class="pc-img-box">
+                        <img src="https://images.unsplash.com/photo-1516478177764-9fe5bd7e9717?q=80&w=2070&auto=format&fit=crop" alt="Tactical Gloves" class="pc-img"
+                            onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'img-fallback\'><i class=\'fa-solid fa-triangle-exclamation\'></i><span>IMG_ERR</span></div>'">
+                        <div class="pc-glow"></div>
+                    </div>
+                    <div class="pc-body">
+                        <div class="pc-meta">
+                            <span class="brand">TRAUMA TEAM</span>
+                            <span class="stock">BULK</span>
+                        </div>
+                        <h3 class="pc-title">COMBAT GLOVES x3</h3>
+                        <div class="pc-stats">
+                            <div class="stat"><i class="fa-solid fa-heart-pulse"></i> HEAL</div>
+                            <div class="stat"><i class="fa-solid fa-box"></i> PACK</div>
+                        </div>
+                    </div>
+                    <div class="pc-foot">
+                        <span class="pc-price">150 <small>CR</small></span>
+                        <button class="pc-add"><i class="fa-solid fa-plus"></i></button>
+                    </div>
+                </article>
+
+            </div>
+
+            <!-- PAGINATION / LOAD MORE -->
+            <div class="load-more-zone">
+                <button class="load-btn">
+                    <span class="btn-content">LOAD_MORE_ASSETS</span>
+                    <i class="fa-solid fa-arrow-down"></i>
+                    <div class="btn-loader"></div>
+                </button>
+            </div>
+
+        </main>
+
+        <!-- 
+        #################################################################################
+        #   [RIGHT] CART PANEL                                                          #
+        #################################################################################
+        -->
+        <aside class="right-panel custom-scrollbar" id="rightPanel">
+
+            <!-- MOBILE HEADER -->
+            <div class="cart-header mob-cart-header">
+                <h3><i class="fa-solid fa-file-invoice-dollar"></i> MANIFEST</h3>
+                <button class="close-icon-btn" onclick="togglePanel('right')">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- WALLET DISPLAY -->
+            <div class="wallet-card">
+                <div class="wc-top">
+                    <div class="wc-label">AVAIL_FUNDS</div>
+                    <i class="fa-brands fa-bitcoin"></i>
+                </div>
+                <div class="wc-val">45,900 <small>CR</small></div>
+                <div class="wc-bar">
+                    <div class="fill" style="width: 65%;"></div>
+                </div>
+                <div class="wc-info">
+                    <span><i class="fa-solid fa-arrow-up"></i> +1200</span>
+                    <span><i class="fa-solid fa-arrow-down"></i> -450</span>
+                </div>
+            </div>
+
+            <!-- DESKTOP HEADER -->
+            <div class="cart-header desk-cart-header">
+                <h3><i class="fa-solid fa-file-invoice-dollar"></i> MANIFEST</h3>
+                <span class="badge" id="cartBadge">0</span>
+            </div>
+
+            <!-- CART ITEMS LIST -->
+            <div class="cart-list custom-scrollbar" id="cartListTarget">
+                <!-- EMPTY STATE -->
+                <div class="empty-msg">
+                    <div class="icon-circle">
+                        <i class="fa-solid fa-box-open"></i>
+                    </div>
+                    <span>NO ASSETS REQUISITIONED</span>
+                    <small>Select items from the grid to add them.</small>
+                </div>
+            </div>
+
+            <!-- PROMO CODE -->
+            <div class="promo-box">
+                <input type="text" placeholder="ENTER_AUTH_CODE" class="promo-input">
+                <button class="promo-btn">APPLY</button>
+            </div>
+
+            <!-- CHECKOUT SUMMARY -->
+            <div class="checkout-box">
+                <div class="summary-lines">
+                    <div class="math-row">
+                        <span>SUBTOTAL</span> <span id="valSub">0</span>
+                    </div>
+                    <div class="math-row">
+                        <span>TAX (5%)</span> <span id="valTax">0</span>
+                    </div>
+                    <div class="math-row">
+                        <span>SHIPPING</span> <span id="valShip">0</span>
+                    </div>
+                </div>
+
+                <div class="math-row total">
+                    <span>TOTAL</span>
+                    <div class="total-wrap">
+                        <span class="total-price" id="valTotal">0</span>
+                        <small>CR</small>
+                    </div>
+                </div>
+
+                <button class="pay-btn" onclick="checkout()">
+                    <span class="btn-text">AUTHORIZE PAYMENT</span>
+                    <i class="fa-solid fa-fingerprint"></i>
+                    <div class="btn-glare"></div>
+                </button>
+
+                <div class="secure-badge">
+                    <i class="fa-solid fa-lock"></i> SECURE_CONNECTION_ESTABLISHED
+                </div>
+            </div>
+        </aside>
+
+    </div>
+
+    <!-- 
+    =========================================================================================
+       [MOBILE COMMAND DECK] FIXED BOTTOM NAV
+    =========================================================================================
+    -->
+    <nav class="mobile-dock">
+        <a href="index.html" class="mob-btn">
+            <div class="icon-box"><i class="fa-solid fa-house"></i></div>
+            <span>HOME</span>
+        </a>
+        <button class="mob-btn" onclick="togglePanel('left')">
+            <div class="icon-box"><i class="fa-solid fa-sliders"></i></div>
+            <span>FILTER</span>
+        </button>
+        <div class="scan-btn-wrap">
+            <button class="scan-btn">
+                <div class="btn-bg"></div>
+                <i class="fa-solid fa-qrcode"></i>
+            </button>
+        </div>
+        <button class="mob-btn" onclick="togglePanel('right')">
+            <div class="icon-box">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <div class="mob-badge" id="mobBadge" style="display:none;">0</div>
+            </div>
+            <span>CART</span>
+        </button>
+        <button class="mob-btn">
+            <div class="icon-box"><i class="fa-solid fa-user"></i></div>
+            <span>PROFILE</span>
+        </button>
+    </nav>
+
+    <!-- 
+    =========================================================================================
+       [MODAL] PRODUCT DETAILS POPUP
+    =========================================================================================
+    -->
+    <div class="modal-layer" id="prodModal">
+        <div class="modal-card">
+
+            <!-- CLOSE BUTTON -->
+            <div class="close-modal" onclick="closeModal()">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+
+            <!-- LEFT: VISUALS -->
+            <div class="mc-vis">
+                <!-- MODAL MAIN IMAGE -->
+                <img id="m-img" src="C-prodoct/jaket.png" alt="Item"
+                    onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'img-fallback\'><i class=\'fa-solid fa-triangle-exclamation\'></i><span>IMG_ERR</span></div>'">
+                <div class="mc-glow" id="m-glow"></div>
+                <div class="scan-overlay"></div>
+
+                <!-- 3D Rotate Controls (Decorative) -->
+                <div class="rotate-controls">
+                    <button><i class="fa-solid fa-rotate-left"></i></button>
+                    <button><i class="fa-solid fa-cube"></i></button>
+                    <button><i class="fa-solid fa-rotate-right"></i></button>
+                </div>
+            </div>
+
+            <!-- RIGHT: INFO -->
+            <div class="mc-info custom-scrollbar">
+                <div class="brand-line">
+                    <div class="bl-left">
+                        <span class="mc-brand" id="m-brand">BRAND</span>
+                        <div class="ver-icon"><i class="fa-solid fa-certificate"></i> VERIFIED</div>
+                    </div>
+                    <span class="stock-badge">IN_STOCK</span>
+                </div>
+
+                <h2 class="mc-title" id="m-title">PRODUCT NAME</h2>
+
+                <!-- RATING STARS -->
+                <div class="rating-box">
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <span>(4.8/5.0) - 230 REVIEWS</span>
+                </div>
+
+                <!-- SPECS GRID -->
+                <div class="mc-specs">
+                    <div class="spec-unit">
+                        <div class="icon-wrap"><i class="fa-solid fa-shield-halved"></i></div>
+                        <div class="su-text">
+                            <span class="su-lbl">DEFENSE</span>
+                            <span class="su-val" id="m-def">0</span>
+                        </div>
+                    </div>
+                    <div class="spec-unit">
+                        <div class="icon-wrap"><i class="fa-solid fa-weight-hanging"></i></div>
+                        <div class="su-text">
+                            <span class="su-lbl">WEIGHT</span>
+                            <span class="su-val" id="m-wgt">0kg</span>
+                        </div>
+                    </div>
+                    <div class="spec-unit">
+                        <div class="icon-wrap"><i class="fa-solid fa-bolt"></i></div>
+                        <div class="su-text">
+                            <span class="su-lbl">ENERGY</span>
+                            <span class="su-val">LOW</span>
+                        </div>
+                    </div>
+                    <div class="spec-unit">
+                        <div class="icon-wrap"><i class="fa-solid fa-recycle"></i></div>
+                        <div class="su-text">
+                            <span class="su-lbl">DURABILITY</span>
+                            <span class="su-val">100%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DESCRIPTION -->
+                <div class="desc-box">
+                    <h3>ITEM_DESCRIPTION //</h3>
+                    <p class="mc-desc">
+                        High-grade military surplus. Optimized for stealth operations.
+                        Includes integrated neural-link ports and kinetic dampening fabric.
+                        <br><br>
+                        <span class="warn-text">Warning: Unauthorized modification voids warranty.</span>
+                    </p>
+                </div>
+
+                <!-- COMPATIBILITY LIST -->
+                <div class="compat-box">
+                    <h3>COMPATIBILITY //</h3>
+                    <div class="tag-cloud">
+                        <span class="c-tag">MK.IV SLOTS</span>
+                        <span class="c-tag">NEURAL LINK</span>
+                        <span class="c-tag">BIO-AUTH</span>
+                    </div>
+                </div>
+
+                <!-- FOOTER ACTIONS -->
+                <div class="mc-foot">
+                    <div class="price-wrap">
+                        <div class="mc-price" id="m-price">0 CR</div>
+                        <small>TAX INCLUDED</small>
+                    </div>
+                    <div class="qty-selector">
+                        <button>-</button>
+                        <span>1</span>
+                        <button>+</button>
+                    </div>
+                    <button class="mc-add" id="m-add-btn">
+                        <span>ADD TO MANIFEST</span>
+                        <i class="fa-solid fa-plus"></i>
+                        <div class="btn-glare"></div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 
+    =========================================================================================
+       LAYER 3: SCRIPT LOADER
+    =========================================================================================
+    -->
+    <script src="products.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

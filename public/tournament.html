@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Team SEC C - Official Tournament Hub | Live Championship</title>
+    <meta name="title" content="Team SEC C - Elite Esports Tournament">
+    <meta name="description"
+        content="https://sec-c-security-cybers.netlify.app/ - Follow SEC C's tournament journey. Live brackets, match schedules, prize pools, and championship standings.">
+    <meta name="keywords" content="SEC C, esports, tournament, gaming bracket, live matches, BGMI, championship">
+    <meta name="author" content="Team SEC C">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Team SEC C - Tournament Hub">
+    <meta property="og:description" content="https://sec-c-security-cybers.netlify.app/ - Official tournament brackets and live match schedules">
+    <meta property="og:image" content="./assets/images/og-tournament.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Team SEC C Tournament">
+    <meta property="twitter:description" content="https://sec-c-security-cybers.netlify.app/ - Live brackets and championship schedules">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png">
+
+    <!-- Google Fonts - Cyber Gaming Aesthetics -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Oxanium:wght@400;500;600;700;800&family=Share+Tech+Mono&family=Orbitron:wght@400;500;700;900&family=Teko:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- External Stylesheet -->
+    <link rel="stylesheet" href="tournament.css">
+</head>
+
+<body id="top" class="tournament-page">
+
+    <!-- System Overlays for Cyber Effect -->
+    <div class="scanline-overlay"></div>
+    <div class="noise-overlay"></div>
+
+    <!-- Custom Gaming Cursor -->
+    <div class="cursor-dot" data-cursor></div>
+    <div class="cursor-circle" data-cursor-follower></div>
+
+    <!-- ═════════════════════════════════════════════════════════════════
+         HEADER / NAVIGATION
+    ═════════════════════════════════════════════════════════════════ -->
+    <header class="header" id="header" data-header>
+        <div class="header-container">
+            <a href="index.html" class="logo" aria-label="Team SEC C Home">
+                SEC <span class="highlight">C.</span>
+            </a>
+
+            <div class="social-desktop" aria-label="Social Media Links">
+                <a href="#" aria-label="Instagram" target="_blank" rel="noopener">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="#" aria-label="YouTube" target="_blank" rel="noopener">
+                    <i class="fa-brands fa-youtube"></i>
+                </a>
+                <a href="#" aria-label="Discord" target="_blank" rel="noopener">
+                    <i class="fa-brands fa-discord"></i>
+                </a>
+                <a href="#" aria-label="Twitter" target="_blank" rel="noopener">
+                    <i class="fa-brands fa-twitter"></i>
+                </a>
+            </div>
+
+            <nav class="nav-menu" id="navMenu" role="navigation">
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <a href="index.html" class="menu-link">
+                            <i class="fa-solid fa-house"></i> HOME
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="tournament.html" class="menu-link">
+                            <i class="fa-solid fa-trophy"></i> TOURNAMENTS
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="store.html" class="menu-link">
+                            <i class="fa-solid fa-cart-shopping"></i> STORE
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="stats.html" class="menu-link">
+                            <i class="fa-solid fa-chart-line"></i> STATS
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="signup.html" class="menu-link">
+                            <i class="fa-solid fa-user-plus"></i> SIGNUP
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="contact.html" class="menu-link">
+                            <i class="fa-solid fa-envelope"></i> CONTACT
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="profile.html" class="menu-link">
+                            <i class="fa-solid fa-user-astronaut"></i> PROFILE
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <button class="nav-toggle-btn" aria-label="Toggle navigation menu" data-nav-toggler>
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- ═════════════════════════════════════════════════════════════════
+         MAIN CONTENT
+    ═════════════════════════════════════════════════════════════════ -->
+    <main>
+        <article>
+
+            <!-- ══════════════════════════════════════════════════════════
+                 HERO SECTION - Tournament Banner
+            ══════════════════════════════════════════════════════════ -->
+            <section class="hero" id="home" aria-label="Tournament Hero Banner">
+                <div class="container">
+                    <div class="hero-content" data-aos="fade-up">
+                        <p class="section-subtitle glitch-text" data-text="Championship Arena">
+                            <i class="fa-solid fa-bolt"></i>
+                            <span>Championship Arena</span>
+                        </p>
+
+                        <h1 class="hero-title">
+                            SEC C INVITATIONAL<br>
+                            <span class="text-gradient">Winter Championship 2025</span>
+                        </h1>
+
+                        <p class="hero-text">
+                            The ultimate battle for esports glory begins here. 32 elite teams compete for a $50,000
+                            prize pool.
+                            Follow the bracket, watch live streams, and witness gaming history in the making.
+                        </p>
+
+                        <div class="hero-meta">
+                            <div class="meta-item">
+                                <i class="fa-solid fa-calendar-days"></i>
+                                <span>Dec 15-25, 2025</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <span>Online + Mumbai Finals</span>
+                            </div>
+                            <div class="meta-item live-badge">
+                                <i class="fa-solid fa-circle fa-fade"></i>
+                                <span>LIVE NOW</span>
+                            </div>
+                        </div>
+
+                        <div class="btn-group">
+                            <a href="#bracket" class="btn btn-primary" data-scroll>
+                                <span class="btn-text">View Bracket</span>
+                                <i class="fa-solid fa-sitemap"></i>
+                            </a>
+                            <a href="#schedule" class="btn btn-outline" data-scroll>
+                                <span class="btn-text">Match Schedule</span>
+                                <i class="fa-regular fa-calendar"></i>
+                            </a>
+                            <a href="#" class="btn btn-outline btn-stream">
+                                <span class="btn-text">Watch Live</span>
+                                <i class="fa-brands fa-twitch"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="hero-banner" data-tilt>
+                        <img src="./assets/images/tournament-trophy.png" width="600" height="600"
+                            alt="Championship Trophy" class="hero-img">
+                        <div class="hero-glow"></div>
+                    </div>
+
+                    <!-- Floating Particles Background -->
+                    <div class="hero-particles">
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ══════════════════════════════════════════════════════════
+                 TOURNAMENT STATS OVERVIEW
+            ══════════════════════════════════════════════════════════ -->
+            <section class="tournament-stats-overview" aria-label="Tournament Statistics">
+                <div class="container">
+                    <div class="stats-container">
+
+                        <div class="stat-box" data-tilt data-aos="fade-up" data-aos-delay="100">
+                            <div class="stat-icon-wrapper">
+                                <i class="fa-solid fa-trophy"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3 class="stat-number" data-count="50000">$50,000</h3>
+                                <p class="stat-label">Prize Pool</p>
+                                <div class="stat-sublabel">Winner takes $25K</div>
+                            </div>
+                            <div class="stat-bar-container">
+                                <div class="stat-bar" style="width: 100%"></div>
+                            </div>
+                        </div>
+
+                        <div class="stat-box" data-tilt data-aos="fade-up" data-aos-delay="200">
+                            <div class="stat-icon-wrapper">
+                                <i class="fa-solid fa-users"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3 class="stat-number">32</h3>
+                                <p class="stat-label">Pro Teams</p>
+                                <div class="stat-sublabel">Elite Squads Competing</div>
+                            </div>
+                            <div class="stat-bar-container">
+                                <div class="stat-bar" style="width: 75%"></div>
+                            </div>
+                        </div>
+
+                        <div class="stat-box" data-tilt data-aos="fade-up" data-aos-delay="300">
+                            <div class="stat-icon-wrapper">
+                                <i class="fa-solid fa-eye"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3 class="stat-number">1.2M+</h3>
+                                <p class="stat-label">Live Viewers</p>
+                                <div class="stat-sublabel">Peak Concurrent</div>
+                            </div>
+                            <div class="stat-bar-container">
+                                <div class="stat-bar" style="width: 90%"></div>
+                            </div>
+                        </div>
+
+                        <div class="stat-box" data-tilt data-aos="fade-up" data-aos-delay="400">
+                            <div class="stat-icon-wrapper">
+                                <i class="fa-solid fa-gamepad"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3 class="stat-number">48</h3>
+                                <p class="stat-label">Total Matches</p>
+                                <div class="stat-sublabel">10 Days of Action</div>
+                            </div>
+                            <div class="stat-bar-container">
+                                <div class="stat-bar" style="width: 60%"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- ══════════════════════════════════════════════════════════
+                 TOURNAMENT BRACKET - THE MAIN EVENT
+            ══════════════════════════════════════════════════════════ -->
+            <section class="bracket-section" id="bracket" aria-label="Tournament Bracket">
+                <div class="bracket-bg-grid"></div>
+
+                <div class="container">
+                    <div class="section-header" data-aos="fade-up">
+                        <p class="section-subtitle">
+                            <i class="fa-solid fa-diagram-project"></i>
+                            Road to Glory
+                        </p>
+                        <h2 class="section-title">
+                            <span class="title-text" data-text="TOURNAMENT BRACKET">TOURNAMENT BRACKET</span>
+                        </h2>
+                        <p class="section-desc">
+                            Follow the journey from Quarter Finals to Championship. Each match is a battle for survival.
+                        </p>
+                        <div class="section-divider">
+                            <span class="divider-line"></span>
+                            <span class="divider-icon"><i class="fa-solid fa-crown"></i></span>
+                            <span class="divider-line"></span>
+                        </div>
+                    </div>
+
+                    <!-- Tournament Phase Selector -->
+                    <div class="phase-selector" data-aos="fade-up" data-aos-delay="100">
+                        <button class="phase-btn active" data-phase="all">
+                            <i class="fa-solid fa-list"></i>
+                            <span>Full Bracket</span>
+                        </button>
+                        <button class="phase-btn" data-phase="quarters">
+                            <i class="fa-solid fa-layer-group"></i>
+                            <span>Quarter Finals</span>
+                        </button>
+                        <button class="phase-btn" data-phase="semis">
+                            <i class="fa-solid fa-trophy"></i>
+                            <span>Semi Finals</span>
+                        </button>
+                        <button class="phase-btn" data-phase="final">
+                            <i class="fa-solid fa-crown"></i>
+                            <span>Grand Final</span>
+                        </button>
+                    </div>
+
+                    <!-- Bracket Scroll Wrapper for Mobile -->
+                    <div class="bracket-scroll-wrapper" data-aos="fade-up" data-aos-delay="200">
+                        <div class="scroll-hint mobile-only">
+                            <i class="fa-solid fa-hand-point-right"></i>
+                            <span>Scroll to see full bracket</span>
+                        </div>
+
+                        <div class="bracket-container">
+
+                            <!-- ═══════════════════════════════════════
+                                 ROUND 1: QUARTER FINALS
+                            ═══════════════════════════════════════ -->
+                            <div class="round round-quarters" data-round="1">
+                                <h3 class="round-header">
+                                    <span class="round-icon"><i class="fa-solid fa-fire"></i></span>
+                                    <span class="round-title">Quarter Finals</span>
+                                    <span class="round-subtitle">Best of 3</span>
+                                </h3>
+
+                                <!-- Match 1 -->
+                                <div class="match-card finished" data-match-id="qf1">
+                                    <div class="match-header">
+                                        <span class="match-status status-finished">
+                                            <i class="fa-solid fa-check-circle"></i> Finished
+                                        </span>
+                                        <span class="match-time">Dec 15, 18:00 IST</span>
+                                    </div>
+
+                                    <div class="match-teams">
+                                        <div class="team-entry winner">
+                                            <div class="team-info">
+                                                <div class="team-logo-wrapper">
+                                                    <img src="./assets/images/teams/secc-logo.png" alt="SEC C Logo"
+                                                        class="team-logo">
+                                                </div>
+                                                <div class="team-details">
+                                                    <span class="team-name">SEC C</span>
+                                                    <span class="team-region">India</span>
+                                                </div>
+                                            </div>
+                                            <div class="team-score">
+                                                <span class="score-number">2</span>
+                                                <span class="win-badge"><i class="fa-solid fa-trophy"></i></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="match-vs">VS</div>
+
+                                        <div class="team-entry loser">
+                                            <div class="team-info">
+                                                <div class="team-logo-wrapper">
+                                                    <img src="./assets/images/teams/alpha-logo.png" alt="Alpha Logo"
+                                                        class="team-logo">
+                                                </div>
+                                                <div class="team-details">
+                                                    <span class="team-name">Alpha Gaming</span>
+                                                    <span class="team-region">Thailand</span>
+                                                </div>
+                                            </div>
+                                            <div class="team-score">
+                                                <span class="score-number">0</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="match-footer">
+                                        <button class="match-details-btn">
+                                            <i class="fa-solid fa-chart-simple"></i>
+                                            View Stats
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Match 2 -->
+                                <div class="match-card finished" data-match-id="qf2">
+                                    <div class="match-header">
+                                        <span class="match-status status-finished">
+                                            <i class="fa-solid fa-check-circle"></i> Finished
+                                        </span>
+                                        <span class="match-time">Dec 15, 20:30 IST</span>
+                                    </div>
+
+                                    <div class="match-teams">
+                                        <div class="team-entry loser">
+                                            <div class="team-info">
+                                                <div class="team-logo-wrapper">
+                                                    <img src="./assets/images/teams/viper-logo.png" alt="Viper Logo"
+                                                        class="team-logo">
+                                                </div>
+                                                <div class="team-details">
+                                                    <span class="team-name">Viper Squad</span>
+                                                    <span class="team-region">Malaysia</span>
+                                                </div>
+                                            </div>
+                                            <div class="team-score">
+                                                <span class="score-number">1</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="match-vs">VS</div>
+
+                                        <div class="team-entry winner">
+                                            <div class="team-info">
+                                                <div class="team-logo-wrapper">
+                                                    <img src="./assets/images/teams/hydra-logo.png" alt="Hydra Logo"
+                                                        class="team-logo">
+                                                </div>
+                                                <div class="team-details">
+                                                    <span class="team-name">Hydra Esports</span>
+                                                    <span class="team-region">Indonesia</span>
+                                                </div>
+                                            </div>
+                                            <div class="team-score">
+                                                <span class="score-number">2</span>
+                                                <span class="win-badge"><i class="fa-solid fa-trophy"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="match-footer">
+                                        <button class="match-details-btn">
+                                            <i class="fa-solid fa-chart-simple"></i>
+                                            View Stats
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Match 3 -->
+                                <div class="match-card live" data-match-id="qf3">
+                                    <div class="match-header">
+                                        <span class="match-status status-live">
+                                            <i class="fa-solid fa-circle fa-fade"></i> LIVE NOW
+                                        </span>
+                                        <span class="match-time">In Progress</span>
+                                    </div>
+
+                                    <div class="match-teams">
+                                        <div class="team-entry">
+                                            <div class="team-info">
+                                                <div class="team-logo-wrapper">
+                                                    <img src="./assets/images/teams/fnatic-logo.png" alt="Fnatic Logo"
+                                                        class="team-logo">
+                                                </div>
+                                                <div class="team-details">
+                                                    <span class="team-name">Fnatic</span>
+                                                    <span class="team-region">UK</span>
+                                                </div>
+                                            </div>
+                                            <div class="team-score">
+                                                <span class="score-number">1</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="match-vs">VS</div>
+
+                                        <div class="team-entry">
+                                            <div class="team-info">
+                                                <div class="team-logo-wrapper">
+                                                    <img src="./assets/images/teams/optic-logo.png" alt="Optic Logo"
+                                                        class="team-logo">
+                                                </div>
+                                                <div class="team-details">
+                                                    <span class="team-name">OpTic Gaming</span>
+                                                    <span class="team-region">USA</span>
+                                                </div>
+                                            </div>
+                                            <div class="team-score">
+                                                <span class="score-number">1</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="match-footer">
+                                        <button class="match-watch-btn">
+                                            <i class="fa-brands fa-twitch"></i>
+                                            Watch Live
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Match 4 -->
+                                <div class="match-card upcoming" data-match-id="qf4">
+                                    <div class="match-header">
+                                        <span class="match-status status-upcoming">
+                                            <i class="fa-regular fa-clock"></i> Upcoming
+                                        </span>
+                                        <span class="match-time">Dec 16, 18:00 IST</span>
+                                    </div>
+
+                                    <div class="match-teams">
+                                        <div class="team-entry">
+                                            <div class="team-info">
+                                                <div class="team-logo-wrapper">
+                                                    <img src="./assets/images/teams/soul-logo.png" alt="Soul Logo"
+                                                        class="team-logo">
+                                                </div>
+                                                <div class="team-details">
+                                                    <span class="team-name">S8UL Esports</span>
+                                                    <span class="team-region">India</span>
+                                                </div>
+                                            </div>
+                                            <div class="team-score">
+                                                <span class="score-number">-</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="match-vs">VS</div>
+
+                                        <div class="team-entry">
+                                            <div class="team-info">
+                                                <div class="team-logo-wrapper">
+                                                    <img src="./assets/images/teams/tsm-logo.png" alt="TSM Logo"
+                                                        class="team-logo">
+                                                </div>
+                                                <div class="team-details">
+                                                    <span class="team-name">TSM</span>
+                                                    <span class="team-region">USA</span>
+                                                </div>
+                                            </div>
+                                            <div class="team-score">
+                                                <span class="score-number">-</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="match-footer">
+                                        <button class="match-notify-btn">
+                                            <i class="fa-regular fa-bell"></i>
+                                            Notify Me
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- Connector Lines -->
+                            <div class="connector-column">
+                                <div class="connector-group">
+                                    <div class="connector-line top"></div>
+                                    <div class="connector-line horizontal"></div>
+                                    <div class="connector-line bottom"></div>
+                                </div>
+                                <div class="connector-group">
+                                    <div class="connector-line top"></div>
+                                    <div class="connector-line horizontal"></div>
+                                    <div class="connector-line bottom"></div>
+                                </div>
+                            </div>
+
+                            <!-- ═══════════════════════════════════════
+                                 ROUND 2: SEMI FINALS
+                            ═══════════════════════════════════════ -->
+                            <div class="round round-semis" data-round="2">
+                                <h3 class="round-header">
+                                    <span class="round-icon"><i class="fa-solid fa-star"></i></span>
+                                    <span class="round-title">Semi Finals</span>
+                                    <span class="round-subtitle">Best of 5</span>
+                                </h3>
+
+                                <!-- Semi Final 1 -->
+                                <div class="match-card active-match upcoming" data-match-id="sf1">
+                                    <div class="match-header">
+                                        <span class="match-status status-upcoming">
+                                            <i class="fa-solid fa-calendar-check"></i> Dec 18
+                                        </span>
+                                        <span class="match-time">18:30 IST</span>
+                                    </div>
+
+                                    <div class="match-teams">
+                                        <div class="team-entry">
+                                            <div class="team-info">
+                                                <div class="team-logo-wrapper">
+                                                    <img src="./assets/images/teams/secc-logo.png" alt="SEC C Logo"
+                                                        class="team-logo">
+                                                </div>
+                                                <div class="team-details">
+                                                    <span class="team-name">SEC C</span>
+                                                    <span class="team-region">India</span>
+                                                </div>
+                                            </div>
+                                            <div class="team-score">
+                                                <span class="score-number">?</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="match-vs">VS</div>
+
+                                        <div class="team-entry">
+                                            <div class="team-info">
+                                                <div class="team-logo-wrapper">
+                                                    <img src="./assets/images/teams/hydra-logo.png" alt="Hydra Logo"
+                                                        class="team-logo">
+                                                </div>
+                                                <div class="team-details">
+                                                    <span class="team-name">Hydra Esports</span>
+                                                    <span class="team-region">Indonesia</span>
+                                                </div>
+                                            </div>
+                                            <div class="team-score">
+                                                <span class="score-number">?</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="match-footer">
+                                        <button class="match-notify-btn">
+                                            <i class="fa-regular fa-bell"></i>
+                                            Set Reminder
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Semi Final 2 -->
+                                <div class="match-card upcoming" data-match-id="sf2">
+                                    <div class="match-header">
+                                        <span class="match-status status-upcoming">
+                                            <i class="fa-solid fa-calendar-check"></i> TBD
+                                        </span>
+                                        <span class="match-time">After QF4</span>
+                                    </div>
+
+                                    <div class="match-teams">
+                                        <div class="team-entry">
+                                            <div class="team-info">
+                                                <div class="team-logo-wrapper">
+                                                    <div class="team-placeholder">?</div>
+                                                </div>
+                                                <div class="team-details">
+                                                    <span class="team-name">TBD</span>
+                                                    <span class="team-region">Pending QF3</span>
+                                                </div>
+                                            </div>
+                                            <div class="team-score">
+                                                <span class="score-number">?</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="match-vs">VS</div>
+
+                                        <div class="team-entry">
+                                            <div class="team-info">
+                                                <div class="team-logo-wrapper">
+                                                    <div class="team-placeholder">?</div>
+                                                </div>
+                                                <div class="team-details">
+                                                    <span class="team-name">TBD</span>
+                                                    <span class="team-region">Pending QF4</span>
+                                                </div>
+                                            </div>
+                                            <div class="team-score">
+                                                <span class="score-number">?</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="match-footer">
+                                        <span class="match-note">
+                                            <i class="fa-solid fa-info-circle"></i>
+                                            Awaiting Quarter Final results
+                                        </span>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- Connector Lines -->
+                            <div class="connector-column">
+                                <div class="connector-group final-path">
+                                    <div class="connector-line top"></div>
+                                    <div class="connector-line horizontal"></div>
+                                    <div class="connector-line bottom"></div>
+                                </div>
+                            </div>
+
+                            <!-- ═══════════════════════════════════════
+                                 ROUND 3: GRAND FINAL
+                            ═══════════════════════════════════════ -->
+                            <div class="round round-final" data-round="3">
+                                <h3 class="round-header">
+                                    <span class="round-icon"><i class="fa-solid fa-crown"></i></span>
+                                    <span class="round-title">Grand Final</span>
+                                    <span class="round-subtitle">Best of 7</span>
+                                </h3>
+
+                                <!-- Grand Final Match -->
+                                <div class="match-card final-card upcoming" data-match-id="final">
+                                    <div class="championship-badge">
+                                        <i class="fa-solid fa-trophy"></i>
+                                        <span>Championship Match</span>
+                                    </div>
+
+                                    <div class="match-header">
+                                        <span class="match-status status-upcoming">
+                                            <i class="fa-solid fa-calendar-star"></i> Dec 25, 2025
+                                        </span>
+                                        <span class="match-time">Grand Finals - 20:00 IST</span>
+                                    </div>
+
+                                    <div class="match-teams">
+                                        <div class="team-entry">
+                                            <div class="team-info">
+                                                <div class="team-logo-wrapper">
+                                                    <div class="team-placeholder">?</div>
+                                                </div>
+                                                <div class="team-details">
+                                                    <span class="team-name">TBD</span>
+                                                    <span class="team-region">Semi Final 1 Winner</span>
+                                                </div>
+                                            </div>
+                                            <div class="team-score">
+                                                <span class="score-number">?</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="match-vs final-vs">
+                                            <div class="vs-trophy">
+                                                <i class="fa-solid fa-trophy"></i>
+                                            </div>
+                                            <span>VS</span>
+                                        </div>
+
+                                        <div class="team-entry">
+                                            <div class="team-info">
+                                                <div class="team-logo-wrapper">
+                                                    <div class="team-placeholder">?</div>
+                                                </div>
+                                                <div class="team-details">
+                                                    <span class="team-name">TBD</span>
+                                                    <span class="team-region">Semi Final 2 Winner</span>
+                                                </div>
+                                            </div>
+                                            <div class="team-score">
+                                                <span class="score-number">?</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="final-prize">
+                                        <div class="prize-item winner-prize">
+                                            <i class="fa-solid fa-medal"></i>
+                                            <span class="prize-label">Winner</span>
+                                            <span class="prize-amount">$25,000</span>
+                                        </div>
+                                        <div class="prize-item runner-prize">
+                                            <i class="fa-solid fa-award"></i>
+                                            <span class="prize-label">Runner-up</span>
+                                            <span class="prize-amount">$15,000</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="match-footer">
+                                        <button class="match-notify-btn btn-premium">
+                                            <i class="fa-solid fa-bell-on"></i>
+                                            Remind Me for Grand Final
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Bracket Legend -->
+                    <div class="bracket-legend" data-aos="fade-up">
+                        <div class="legend-item">
+                            <span class="legend-indicator finished"></span>
+                            <span class="legend-label">Finished</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-indicator live"></span>
+                            <span class="legend-label">Live Now</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-indicator upcoming"></span>
+                            <span class="legend-label">Upcoming</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-indicator tbd"></span>
+                            <span class="legend-label">To Be Determined</span>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ══════════════════════════════════════════════════════════
+                 NEXT MATCH COUNTDOWN
+            ══════════════════════════════════════════════════════════ -->
+            <section class="next-match-section" id="countdown" aria-label="Next Match Countdown">
+                <div class="container">
+                    <div class="next-match-countdown" data-aos="zoom-in">
+                        <div class="countdown-header">
+                            <i class="fa-solid fa-stopwatch"></i>
+                            <h3>Next Featured Match Starts In</h3>
+                        </div>
+
+                        <div class="countdown-timer">
+                            <div class="time-box">
+                                <span class="time-number" id="days">02</span>
+                                <span class="time-label">Days</span>
+                            </div>
+                            <div class="time-separator">:</div>
+                            <div class="time-box">
+                                <span class="time-number" id="hours">14</span>
+                                <span class="time-label">Hours</span>
+                            </div>
+                            <div class="time-separator">:</div>
+                            <div class="time-box">
+                                <span class="time-number" id="minutes">45</span>
+                                <span class="time-label">Minutes</span>
+                            </div>
+                            <div class="time-separator">:</div>
+                            <div class="time-box">
+                                <span class="time-number" id="seconds">30</span>
+                                <span class="time-label">Seconds</span>
+                            </div>
+                        </div>
+
+                        <div class="countdown-match-info">
+                            <h4>Semi Final: SEC C vs Hydra Esports</h4>
+                            <p>
+                                <i class="fa-solid fa-calendar"></i> December 18, 2025 • 18:30 IST
+                            </p>
+                            <p>
+                                <i class="fa-solid fa-location-dot"></i> Main Stage • Best of 5
+                            </p>
+                        </div>
+
+                        <div class="countdown-actions">
+                            <button class="btn btn-primary">
+                                <i class="fa-brands fa-youtube"></i>
+                                Watch on YouTube
+                            </button>
+                            <button class="btn btn-outline">
+                                <i class="fa-brands fa-twitch"></i>
+                                Watch on Twitch
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ══════════════════════════════════════════════════════════
+                 BROADCAST SCHEDULE
+            ══════════════════════════════════════════════════════════ -->
+            <section class="schedule-section" id="schedule" aria-label="Match Schedule">
+                <div class="container">
+                    <div class="section-header" data-aos="fade-up">
+                        <p class="section-subtitle">
+                            <i class="fa-regular fa-calendar-days"></i>
+                            Match Calendar
+                        </p>
+                        <h2 class="section-title">
+                            <span class="title-text">Broadcast Schedule</span>
+                        </h2>
+                        <p class="section-desc">
+                            All times are in IST (India Standard Time). Matches streamed live on YouTube and Twitch.
+                        </p>
+                    </div>
+
+                    <div class="schedule-grid">
+
+                        <!-- Schedule Item 1 - LIVE -->
+                        <div class="schedule-item live-now" data-aos="fade-up" data-aos-delay="100">
+                            <div class="schedule-date">
+                                <span class="date-day">15</span>
+                                <span class="date-month">DEC</span>
+                                <span class="date-year">2025</span>
+                            </div>
+
+                            <div class="schedule-info">
+                                <div class="match-tags">
+                                    <span class="tag tag-live">
+                                        <i class="fa-solid fa-circle fa-fade"></i> LIVE NOW
+                                    </span>
+                                    <span class="tag tag-quarter">Quarter Final 3</span>
+                                </div>
+
+                                <div class="match-matchup">
+                                    <div class="team-left">
+                                        <img src="./assets/images/teams/fnatic-logo.png" alt="Fnatic"
+                                            class="team-mini-logo">
+                                        <span>Fnatic</span>
+                                    </div>
+                                    <div class="vs-divider">
+                                        <span>VS</span>
+                                    </div>
+                                    <div class="team-right">
+                                        <span>OpTic Gaming</span>
+                                        <img src="./assets/images/teams/optic-logo.png" alt="OpTic"
+                                            class="team-mini-logo">
+                                    </div>
+                                </div>
+
+                                <div class="match-meta">
+                                    <span class="meta-item">
+                                        <i class="fa-regular fa-clock"></i> Started at 20:00 IST
+                                    </span>
+                                    <span class="meta-item">
+                                        <i class="fa-solid fa-gamepad"></i> Best of 3
+                                    </span>
+                                    <span class="meta-item">
+                                        <i class="fa-solid fa-eye"></i> 245K Watching
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="schedule-actions">
+                                <a href="#" class="watch-btn btn-live">
+                                    <i class="fa-brands fa-twitch"></i>
+                                    Watch Live
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Schedule Item 2 - Upcoming -->
+                        <div class="schedule-item" data-aos="fade-up" data-aos-delay="200">
+                            <div class="schedule-date">
+                                <span class="date-day">16</span>
+                                <span class="date-month">DEC</span>
+                                <span class="date-year">2025</span>
+                            </div>
+
+                            <div class="schedule-info">
+                                <div class="match-tags">
+                                    <span class="tag tag-upcoming">Upcoming</span>
+                                    <span class="tag tag-quarter">Quarter Final 4</span>
+                                </div>
+
+                                <div class="match-matchup">
+                                    <div class="team-left">
+                                        <img src="./assets/images/teams/soul-logo.png" alt="S8UL"
+                                            class="team-mini-logo">
+                                        <span>S8UL Esports</span>
+                                    </div>
+                                    <div class="vs-divider">
+                                        <span>VS</span>
+                                    </div>
+                                    <div class="team-right">
+                                        <span>TSM</span>
+                                        <img src="./assets/images/teams/tsm-logo.png" alt="TSM" class="team-mini-logo">
+                                    </div>
+                                </div>
+
+                                <div class="match-meta">
+                                    <span class="meta-item">
+                                        <i class="fa-regular fa-clock"></i> Tomorrow at 18:00 IST
+                                    </span>
+                                    <span class="meta-item">
+                                        <i class="fa-solid fa-gamepad"></i> Best of 3
+                                    </span>
+                                    <span class="meta-item">
+                                        <i class="fa-solid fa-trophy"></i> Winner advances to SF
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="schedule-actions">
+                                <button class="watch-btn btn-notify">
+                                    <i class="fa-regular fa-bell"></i>
+                                    Notify Me
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Schedule Item 3 - Semi Final -->
+                        <div class="schedule-item featured" data-aos="fade-up" data-aos-delay="300">
+                            <div class="schedule-date">
+                                <span class="date-day">18</span>
+                                <span class="date-month">DEC</span>
+                                <span class="date-year">2025</span>
+                            </div>
+
+                            <div class="schedule-info">
+                                <div class="match-tags">
+                                    <span class="tag tag-featured">
+                                        <i class="fa-solid fa-star"></i> Featured
+                                    </span>
+                                    <span class="tag tag-semi">Semi Final 1</span>
+                                </div>
+
+                                <div class="match-matchup">
+                                    <div class="team-left">
+                                        <img src="./assets/images/teams/secc-logo.png" alt="SEC C"
+                                            class="team-mini-logo">
+                                        <span>SEC C</span>
+                                    </div>
+                                    <div class="vs-divider">
+                                        <span>VS</span>
+                                    </div>
+                                    <div class="team-right">
+                                        <span>Hydra Esports</span>
+                                        <img src="./assets/images/teams/hydra-logo.png" alt="Hydra"
+                                            class="team-mini-logo">
+                                    </div>
+                                </div>
+
+                                <div class="match-meta">
+                                    <span class="meta-item">
+                                        <i class="fa-regular fa-clock"></i> Dec 18 at 18:30 IST
+                                    </span>
+                                    <span class="meta-item">
+                                        <i class="fa-solid fa-fire"></i> Best of 5
+                                    </span>
+                                    <span class="meta-item">
+                                        <i class="fa-solid fa-trophy"></i> Finals Qualifier
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="schedule-actions">
+                                <button class="watch-btn btn-remind">
+                                    <i class="fa-solid fa-bell-on"></i>
+                                    Set Reminder
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Schedule Item 4 - Grand Final -->
+                        <div class="schedule-item championship" data-aos="fade-up" data-aos-delay="400">
+                            <div class="schedule-date">
+                                <span class="date-day">25</span>
+                                <span class="date-month">DEC</span>
+                                <span class="date-year">2025</span>
+                            </div>
+
+                            <div class="schedule-info">
+                                <div class="match-tags">
+                                    <span class="tag tag-final">
+                                        <i class="fa-solid fa-crown"></i> Grand Final
+                                    </span>
+                                    <span class="tag tag-championship">$50K Prize Pool</span>
+                                </div>
+
+                                <div class="match-matchup">
+                                    <div class="team-left">
+                                        <div class="team-placeholder-mini">?</div>
+                                        <span>TBD</span>
+                                    </div>
+                                    <div class="vs-divider final">
+                                        <i class="fa-solid fa-trophy"></i>
+                                        <span>VS</span>
+                                    </div>
+                                    <div class="team-right">
+                                        <span>TBD</span>
+                                        <div class="team-placeholder-mini">?</div>
+                                    </div>
+                                </div>
+
+                                <div class="match-meta">
+                                    <span class="meta-item">
+                                        <i class="fa-regular fa-clock"></i> Dec 25 at 20:00 IST
+                                    </span>
+                                    <span class="meta-item">
+                                        <i class="fa-solid fa-fire"></i> Best of 7
+                                    </span>
+                                    <span class="meta-item">
+                                        <i class="fa-solid fa-location-dot"></i> Mumbai Arena
+                                    </span>
+                                </div>
+
+                                <div class="championship-prize">
+                                    <div class="prize-display">
+                                        <i class="fa-solid fa-trophy"></i>
+                                        <span>Winner: $25,000</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="schedule-actions">
+                                <button class="watch-btn btn-championship">
+                                    <i class="fa-solid fa-star"></i>
+                                    Notify for Finals
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Download Schedule Button -->
+                    <div class="schedule-download" data-aos="fade-up">
+                        <button class="btn btn-outline">
+                            <i class="fa-solid fa-download"></i>
+                            Download Full Schedule (PDF)
+                        </button>
+                        <button class="btn btn-outline">
+                            <i class="fa-solid fa-calendar-plus"></i>
+                            Add to Google Calendar
+                        </button>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ══════════════════════════════════════════════════════════
+                 TOURNAMENT INFO / RULES
+            ══════════════════════════════════════════════════════════ -->
+            <section class="tournament-info-section" aria-label="Tournament Information">
+                <div class="container">
+                    <div class="info-grid">
+
+                        <!-- Tournament Format -->
+                        <div class="info-card" data-aos="fade-up" data-aos-delay="100">
+                            <div class="info-icon">
+                                <i class="fa-solid fa-diagram-project"></i>
+                            </div>
+                            <h3 class="info-title">Tournament Format</h3>
+                            <div class="info-content">
+                                <ul class="info-list">
+                                    <li><i class="fa-solid fa-check"></i> Single Elimination Bracket</li>
+                                    <li><i class="fa-solid fa-check"></i> 32 Teams Total</li>
+                                    <li><i class="fa-solid fa-check"></i> Best of 3 (Quarters)</li>
+                                    <li><i class="fa-solid fa-check"></i> Best of 5 (Semis)</li>
+                                    <li><i class="fa-solid fa-check"></i> Best of 7 (Finals)</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Prize Distribution -->
+                        <div class="info-card" data-aos="fade-up" data-aos-delay="200">
+                            <div class="info-icon">
+                                <i class="fa-solid fa-sack-dollar"></i>
+                            </div>
+                            <h3 class="info-title">Prize Distribution</h3>
+                            <div class="info-content">
+                                <div class="prize-breakdown">
+                                    <div class="prize-row">
+                                        <span class="prize-position">🥇 1st Place</span>
+                                        <span class="prize-money">$25,000</span>
+                                    </div>
+                                    <div class="prize-row">
+                                        <span class="prize-position">🥈 2nd Place</span>
+                                        <span class="prize-money">$15,000</span>
+                                    </div>
+                                    <div class="prize-row">
+                                        <span class="prize-position">🥉 3rd Place</span>
+                                        <span class="prize-money">$7,000</span>
+                                    </div>
+                                    <div class="prize-row">
+                                        <span class="prize-position">4th Place</span>
+                                        <span class="prize-money">$3,000</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tournament Rules -->
+                        <div class="info-card" data-aos="fade-up" data-aos-delay="300">
+                            <div class="info-icon">
+                                <i class="fa-solid fa-book"></i>
+                            </div>
+                            <h3 class="info-title">Tournament Rules</h3>
+                            <div class="info-content">
+                                <ul class="info-list">
+                                    <li><i class="fa-solid fa-gavel"></i> No cheating or exploits</li>
+                                    <li><i class="fa-solid fa-gavel"></i> 5 players per team</li>
+                                    <li><i class="fa-solid fa-gavel"></i> 10-minute ready check</li>
+                                    <li><i class="fa-solid fa-gavel"></i> Admin discretion final</li>
+                                    <li><i class="fa-solid fa-gavel"></i> Standard ping limits</li>
+                                </ul>
+                                <button class="info-btn">
+                                    <i class="fa-solid fa-file-pdf"></i>
+                                    View Full Rulebook
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Streaming Platforms -->
+                        <div class="info-card" data-aos="fade-up" data-aos-delay="400">
+                            <div class="info-icon">
+                                <i class="fa-solid fa-tv"></i>
+                            </div>
+                            <h3 class="info-title">Watch Live On</h3>
+                            <div class="info-content">
+                                <div class="platform-links">
+                                    <a href="#" class="platform-btn youtube">
+                                        <i class="fa-brands fa-youtube"></i>
+                                        <span>YouTube</span>
+                                    </a>
+                                    <a href="#" class="platform-btn twitch">
+                                        <i class="fa-brands fa-twitch"></i>
+                                        <span>Twitch</span>
+                                    </a>
+                                    <a href="#" class="platform-btn facebook">
+                                        <i class="fa-brands fa-facebook"></i>
+                                        <span>Facebook Gaming</span>
+                                    </a>
+                                    <a href="#" class="platform-btn discord">
+                                        <i class="fa-brands fa-discord"></i>
+                                        <span>Discord</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+        </article>
+    </main>
+
+    <!-- ═════════════════════════════════════════════════════════════════
+         FOOTER
+    ═════════════════════════════════════════════════════════════════ -->
+    <footer class="footer" id="contact">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+
+                    <!-- Footer Brand -->
+                    <div class="footer-brand">
+                        <a href="index.html" class="logo">SEC <span class="highlight">C.</span></a>
+                        <p class="footer-text">
+                            Team SEC C - India's Premier Esports Organization. Competing at the highest level across
+                            multiple titles.
+                        </p>
+                        <ul class="social-list">
+                            <li>
+                                <a href="#" class="social-link" aria-label="Instagram">
+                                    <i class="fa-brands fa-instagram"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="social-link" aria-label="YouTube">
+                                    <i class="fa-brands fa-youtube"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="social-link" aria-label="Discord">
+                                    <i class="fa-brands fa-discord"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="social-link" aria-label="Twitter">
+                                    <i class="fa-brands fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="social-link" aria-label="Twitch">
+                                    <i class="fa-brands fa-twitch"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div class="footer-list">
+                        <p class="footer-list-title">Quick Links</p>
+                        <ul>
+                            <li><a href="index.html" class="footer-link">Home</a></li>
+                            <li><a href="tournament.html" class="footer-link">Tournaments</a></li>
+                            <li><a href="stats.html" class="footer-link">Player Stats</a></li>
+                            <li><a href="store.html" class="footer-link">Merch Store</a></li>
+                            <li><a href="contact.html" class="footer-link">Contact Us</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Support -->
+                    <div class="footer-list">
+                        <p class="footer-list-title">Support</p>
+                        <ul>
+                            <li><a href="#" class="footer-link">FAQ</a></li>
+                            <li><a href="#" class="footer-link">Privacy Policy</a></li>
+                            <li><a href="#" class="footer-link">Terms of Service</a></li>
+                            <li><a href="#" class="footer-link">Sponsorship</a></li>
+                            <li><a href="#" class="footer-link">Media Kit</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Newsletter -->
+                    <div class="footer-list">
+                        <p class="footer-list-title">Stay Updated</p>
+                        <p class="footer-text">Subscribe for tournament updates and exclusive content.</p>
+                        <form action="#" class="footer-form" id="newsletterForm">
+                            <input type="email" name="email_address" required placeholder="Your Email Address"
+                                class="input-field" autocomplete="email">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fa-solid fa-paper-plane"></i>
+                                Subscribe
+                            </button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="container">
+                <p class="copyright">
+                    &copy; 2025 Team SEC C Esports. All Rights Reserved. | Designed with
+                    <i class="fa-solid fa-heart"></i> for Gamers
+                </p>
+                <p class="footer-credits">
+                    Built by <a href="#" class="credit-link">SEC C Dev Team</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#top" class="back-top-btn" aria-label="Back to top" data-back-top-btn>
+        <i class="fa-solid fa-arrow-up"></i>
+    </a>
+
+    <!-- ═════════════════════════════════════════════════════════════════
+         JAVASCRIPT
+    ═════════════════════════════════════════════════════════════════ -->
+    <script src="tournament.js"></script>
+    <script src="script.js"></script>
+
+    <!-- Ionicons (Optional) -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!-- META -->
+    <meta name="description" content="https://sec-c-security-cybers.netlify.app/ - SEC C - Advanced Tactical Command Interface | Operator Authentication Portal">
+    <meta name="theme-color" content="#00ff88">
+    <meta name="author" content="Perplexity AI System">
+
+    <!-- TITLE -->
+    <title>SEC C | OPERATOR NEXUS [BUILD v.12.0]</title>
+
+    <!-- FONT PRELOAD -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- FONTS -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Koulen&family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&family=Teko:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- ICONS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <!-- MAIN STYLESHEETS (from both versions) -->
+    <link rel="stylesheet" href="signup.css">
+    <link rel="stylesheet" href="auth-extend.css">
+    <link rel="stylesheet" href="auth-ultimate.css">
+
+    <!-- INLINE CRITICAL CSS -->
+    <style>
+        :root {
+            --bg-void: #000000;
+            --c-prim: #00ff88;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            background-color: var(--bg-void);
+            font-family: 'Rajdhani', sans-serif;
+        }
+
+        #boot-sequence {
+            position: fixed;
+            inset: 0;
+            z-index: 99999;
+            background: #020202;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body class="command-center-body">
+
+    <!-- =========================================================================
+         LAYER 0: BOOT SEQUENCE
+    ========================================================================= -->
+    <div id="boot-sequence">
+        <div class="boot-wrapper">
+
+            <!-- Spinning Hexagon HUD -->
+            <div class="hex-spinner-assembly">
+                <div class="hex-ring r1"></div>
+                <div class="hex-ring r2"></div>
+                <div class="hex-ring r3"></div>
+                <div class="hex-core">
+                    <i class="fa-solid fa-power-off"></i>
+                </div>
+            </div>
+
+            <!-- Terminal Readout -->
+            <div class="boot-terminal-window">
+                <div class="term-header">
+                    <span class="t-title">BIOS_CHECK_V.12.0</span>
+                    <span class="t-status">RUNNING</span>
+                </div>
+                <div class="term-log" id="boot-log-feed">
+                    <div class="log-line"><span class="time">[00:00:01]</span> <span class="cmd">INIT_KERNEL...</span>
+                        <span class="ok">OK</span>
+                    </div>
+                    <div class="log-line"><span class="time">[00:00:02]</span> <span
+                            class="cmd">LOADING_DRIVERS...</span> <span class="ok">OK</span></div>
+                    <div class="log-line"><span class="time">[00:00:04]</span> <span
+                            class="cmd">MOUNT_VIRTUAL_DRIVE...</span> <span class="ok">OK</span></div>
+                    <div class="log-line"><span class="time">[00:00:08]</span> <span
+                            class="cmd">CHECK_SECURE_BOOT...</span> <span class="ok">PASSED</span></div>
+                    <div class="log-line"><span class="time">[00:00:12]</span> <span
+                            class="cmd">BYPASSING_SEC_LAYER_1...</span> <span class="ok">OK</span></div>
+                    <div class="log-line"><span class="time">[00:00:15]</span> <span
+                            class="cmd">ESTABLISHING_UPLINK...</span> <span class="ok">CONNECTED</span></div>
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="boot-progress-container">
+                    <div class="boot-bar-track">
+                        <div class="boot-bar-fill" id="bootBar"></div>
+                    </div>
+                    <div class="boot-stats">
+                        <span class="stat-label">MEMORY_ALLOC</span>
+                        <span class="stat-val" id="bootPct">0%</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- =========================================================================
+         LAYER 1: BACKGROUND ENV
+    ========================================================================= -->
+    <div class="bg-layer-group">
+        <!-- 3D Grid -->
+        <div class="grid-horizon">
+            <div class="grid-plane"></div>
+        </div>
+
+        <!-- Particles -->
+        <div class="particle-field">
+            <div class="pt p1"></div>
+            <div class="pt p2"></div>
+            <div class="pt p3"></div>
+            <div class="pt p4"></div>
+            <div class="pt p5"></div>
+            <div class="pt p6"></div>
+            <div class="pt p7"></div>
+            <div class="pt p8"></div>
+            <div class="pt p9"></div>
+            <div class="pt p10"></div>
+            <div class="pt p11"></div>
+            <div class="pt p12"></div>
+            <div class="pt p13"></div>
+            <div class="pt p14"></div>
+            <div class="pt p15"></div>
+        </div>
+
+        <!-- Overlays -->
+        <div class="fx-scanlines"></div>
+        <div class="fx-vignette"></div>
+        <div class="fx-noise"></div>
+        <div class="fx-glare"></div>
+    </div>
+
+
+    <!-- =========================================================================
+         LAYER 2: MAIN UI WRAPPER
+    ========================================================================= -->
+    <div class="ui-viewport-wrapper">
+
+        <!-- HEADER -->
+        <header class="top-hud-bar">
+
+            <!-- Left: Home -->
+            <div class="hud-section left">
+                <a href="index.html" class="home-btn">
+                    <i class="fa-solid fa-chevron-left"></i>
+                    <span class="home-text">RETURN_TO_BASE</span>
+                </a>
+            </div>
+
+            <!-- Center: Logo -->
+            <div class="hud-section center">
+                <div class="main-logo-assembly">
+                    <svg class="logo-svg" width="60" height="60" viewBox="0 0 100 100">
+                        <defs>
+                            <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#00ff88;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#005533;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <path d="M50 5 L90 20 L80 85 L50 95 L20 85 L10 20 Z" stroke="#00ff88" stroke-width="2"
+                            fill="none" />
+                        <path d="M50 15 L80 28 L72 80 L50 88 L28 80 L20 28 Z" fill="rgba(0,255,136,0.1)"
+                            stroke="none" />
+                        <circle cx="50" cy="50" r="10" fill="#00ff88" class="pulse-circle" />
+                    </svg>
+                    <div class="brand-text">
+                        <span class="w1">SEC</span><span class="w2">C</span>
+                    </div>
+                </div>
+                <div class="deco-line-assembly">
+                    <div class="d-line"></div>
+                    <div class="d-marker"></div>
+                    <div class="d-line"></div>
+                </div>
+                <div class="security-clearance">CLEARANCE: OMEGA</div>
+            </div>
+
+            <!-- Right: Status + Clock -->
+            <div class="hud-section right">
+                <div class="net-status-widget">
+                    <span class="net-label">ONLINE</span>
+                    <div class="bars">
+                        <div class="b b1"></div>
+                        <div class="b b2"></div>
+                        <div class="b b3"></div>
+                    </div>
+                </div>
+                <div class="clock-widget">
+                    <span id="sys-time" class="time-readout">00:00:00</span>
+                    <span class="tz">IST</span>
+                </div>
+            </div>
+
+        </header>
+
+
+        <!-- MAIN GRID -->
+        <main class="core-grid-container">
+
+            <!-- COLUMN 1: NAV + INTEL -->
+            <aside class="col col-left desktop-only" data-simplebar>
+
+                <!-- Navigation -->
+                <nav class="panel nav-module">
+                    <div class="p-header">
+                        <i class="fa-solid fa-bars-staggered"></i>
+                        <h3>COMMAND_NAV</h3>
+                    </div>
+                    <ul class="nav-list">
+                        <li>
+                            <a href="index.html"><i class="fa-solid fa-house-chimney"></i> <span>HOME_BASE</span></a>
+                            <div class="nav-marker"></div>
+                        </li>
+                        <li class="active">
+                            <a href="#"><i class="fa-solid fa-id-card"></i> <span>ACCESS_PORTAL</span></a>
+                            <div class="nav-marker"></div>
+                        </li>
+                        <li>
+                            <a href="tournament.html"><i class="fa-solid fa-gamepad"></i> <span>DEPLOYMENT</span></a>
+                            <div class="nav-marker"></div>
+                        </li>
+                        <li>
+                            <a href="store.html"><i class="fa-solid fa-layer-group"></i> <span>LOADOUTS</span></a>
+                            <div class="nav-marker"></div>
+                        </li>
+                        <li>
+                            <a href="stats.html"><i class="fa-solid fa-chart-pie"></i> <span>ANALYTICS</span></a>
+                            <div class="nav-marker"></div>
+                        </li>
+                        <li>
+                            <a href="contact.html"><i class="fa-solid fa-flask"></i> <span>R&D LAB</span></a>
+                            <div class="nav-marker"></div>
+                        </li>
+                    </ul>
+                </nav>
+
+                <!-- Intel -->
+                <div class="panel intel-module">
+                    <div class="p-header">
+                        <i class="fa-solid fa-rss"></i>
+                        <h3>GLOBAL_INTEL</h3>
+                        <div class="ctrls">
+                            <span class="dot"></span><span class="dot"></span>
+                        </div>
+                    </div>
+
+                    <div class="tab-rack">
+                        <button class="t-btn active" onclick="switchTab('news')">NEWS</button>
+                        <button class="t-btn" onclick="switchTab('patches')">LOGS</button>
+                    </div>
+
+                    <div class="scroll-content custom-scrollbar" id="feed-content">
+                        <article class="news-bit priority-high">
+                            <div class="nb-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                            <div class="nb-details">
+                                <span class="nb-date">T-MINUS 2 HRS</span>
+                                <h4>INCURSION DETECTED</h4>
+                                <p>Unauthorized entry in Sector 4. All units verify ID.</p>
+                            </div>
+                        </article>
+
+                        <article class="news-bit">
+                            <div class="nb-icon"><i class="fa-solid fa-boxes-stacked"></i></div>
+                            <div class="nb-details">
+                                <span class="nb-date">YESTERDAY</span>
+                                <h4>SUPPLY DROP INBOUND</h4>
+                                <p>New 'Spectre' skins available in the black market.</p>
+                            </div>
+                        </article>
+
+                        <article class="news-bit">
+                            <div class="nb-icon"><i class="fa-solid fa-medal"></i></div>
+                            <div class="nb-details">
+                                <span class="nb-date">2 DAYS AGO</span>
+                                <h4>SEASON 4 RANKING</h4>
+                                <p>Leaderboards have been reset. Good hunting.</p>
+                            </div>
+                        </article>
+
+                        <article class="news-bit">
+                            <div class="nb-icon"><i class="fa-solid fa-code-branch"></i></div>
+                            <div class="nb-details">
+                                <span class="nb-date">ARCHIVE</span>
+                                <h4>PATCH 3.99 NOTES</h4>
+                                <p>Fixed bug where gravity boots would fail.</p>
+                            </div>
+                        </article>
+
+                        <article class="news-bit">
+                            <div class="nb-icon"><i class="fa-solid fa-users"></i></div>
+                            <div class="nb-details">
+                                <span class="nb-date">COMMUNITY</span>
+                                <h4>CLAN WARS STARTING</h4>
+                                <p>Register your squad before 24:00 ZULU.</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- Mini Map -->
+                <div class="panel map-module">
+                    <div class="map-container">
+                        <svg class="radar-svg" viewBox="0 0 200 150">
+                            <defs>
+                                <pattern id="smallGrid" width="20" height="20" patternUnits="userSpaceOnUse">
+                                    <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(0,255,136,0.1)"
+                                        stroke-width="1" />
+                                </pattern>
+                            </defs>
+                            <rect width="100%" height="100%" fill="url(#smallGrid)" />
+                            <path d="M0 100 Q 50 120 100 80 T 200 100" stroke="rgba(0,255,136,0.3)" fill="none" />
+                            <circle cx="120" cy="60" r="3" fill="#ff003c" class="map-blip" />
+                            <circle cx="120" cy="60" r="15" stroke="#ff003c" stroke-width="1" fill="none"
+                                class="map-ping-anim" />
+                        </svg>
+                        <span class="map-overlay-text">LIVE_SATELLITE_FEED</span>
+                    </div>
+                </div>
+
+            </aside>
+
+
+            <!-- COLUMN 2: CENTRAL PORTAL -->
+            <section class="col col-center">
+
+                <div class="portal-mainframe">
+
+                    <!-- Brackets -->
+                    <div class="bracket b-tl"></div>
+                    <div class="bracket b-tr"></div>
+                    <div class="bracket b-bl"></div>
+                    <div class="bracket b-br"></div>
+
+                    <!-- Holographic light -->
+                    <div class="holo-cone"></div>
+
+                    <!-- Head -->
+                    <div class="portal-head">
+                        <h1 class="main-h1 glitch-text" data-text="SEC C NEXUS">SEC C NEXUS</h1>
+                        <div class="sub-h1">
+                            <span class="line"></span>
+                            <span class="txt">IDENTITY VERIFICATION PROTOCOL</span>
+                            <span class="line"></span>
+                        </div>
+                    </div>
+
+                    <!-- Tabs -->
+                    <div class="auth-switcher">
+                        <button id="btn-login" class="as-btn active" onclick="switchAuth('login')">
+                            <i class="fa-solid fa-key"></i> LOGIN
+                        </button>
+                        <button id="btn-register" class="as-btn" onclick="switchAuth('register')">
+                            <i class="fa-solid fa-user-plus"></i> ENLIST
+                        </button>
+                        <button id="btn-qr" class="as-btn" onclick="switchAuth('qr')">
+                            <i class="fa-solid fa-qrcode"></i> SCAN
+                        </button>
+                    </div>
+
+                    <!-- Forms -->
+                    <div class="forms-stage custom-scrollbar">
+
+                        <!-- LOGIN -->
+                        <form id="form-login" class="cyber-form active-form" onsubmit="handleLogin(event)">
+                            <div class="input-group">
+                                <label>OPERATOR ID</label>
+                                <div class="inp-box">
+                                    <span class="prefix">OP//</span>
+                                    <input type="text" id="loginUsername" placeholder="ENTER IDENTIFIER"
+                                        autocomplete="username" required>
+                                    <i class="fa-solid fa-fingerprint status-icon"></i>
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <label>ACCESS CODE</label>
+                                <div class="inp-box">
+                                    <span class="prefix">KEY//</span>
+                                    <input type="password" id="p-login" placeholder="••••••••"
+                                        autocomplete="current-password" required>
+                                    <button type="button" class="eye-reveal" onclick="togglePW('p-login')">
+                                        <i class="fa-regular fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <label class="cyber-checkbox">
+                                    <input type="checkbox" checked>
+                                    <span class="cb-mark"></span>
+                                    <span class="cb-label">MAINTAIN UPLINK</span>
+                                </label>
+                                <a href="#" class="forgot-link">RESET_KEY?</a>
+                            </div>
+
+                            <button type="submit" class="action-btn btn-primary">
+                                <span class="bg-layer"></span>
+                                <span class="btn-content">INITIALIZE LINK</span>
+                            </button>
+
+                            <div class="or-divider"><span>OR AUTHENTICATE VIA</span></div>
+
+                            <div class="social-auth-row">
+                                <button type="button" class="soc-btn discord"><i
+                                        class="fa-brands fa-discord"></i></button>
+                                <button type="button" class="soc-btn steam"><i class="fa-brands fa-steam"></i></button>
+                                <button type="button" class="soc-btn google"><i
+                                        class="fa-brands fa-google"></i></button>
+                            </div>
+                        </form>
+
+                        <!-- REGISTER -->
+                        <form id="form-register" class="cyber-form" onsubmit="handleRegister(event)">
+                            <div class="dual-row">
+                                <div class="input-group">
+                                    <label>CALLSIGN (USER)</label>
+                                    <div class="inp-box"><input type="text" id="regUsername" placeholder="ALIAS"
+                                            required></div>
+                                </div>
+                                <div class="input-group">
+                                    <label>SERVER REGION</label>
+                                    <div class="inp-box">
+                                        <select id="regRegion" required>
+                                            <option value="">SELECT REGION</option>
+                                            <option>NA_EAST_01</option>
+                                            <option>NA_WEST_02</option>
+                                            <option>EU_CENTRAL</option>
+                                            <option>ASIA_PACIFIC</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <label>SECURE EMAIL</label>
+                                <div class="inp-box">
+                                    <input type="email" id="regEmail" placeholder="USER@DOMAIN.NET" required>
+                                    <i class="fa-solid fa-envelope status-icon"></i>
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <label>CREATE PASSCODE</label>
+                                <div class="inp-box">
+                                    <input type="password" id="p-reg" placeholder="MIN 8 CHARS" required minlength="8">
+                                    <button type="button" class="eye-reveal" onclick="togglePW('p-reg')">
+                                        <i class="fa-regular fa-eye"></i>
+                                    </button>
+                                </div>
+                                <div class="pw-strength-visual">
+                                    <div class="seg s1"></div>
+                                    <div class="seg s2"></div>
+                                    <div class="seg s3"></div>
+                                    <div class="seg s4"></div>
+                                    <span class="pw-label">STRENGTH: WAITING_INPUT</span>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <label class="cyber-checkbox">
+                                    <input type="checkbox" required>
+                                    <span class="cb-mark"></span>
+                                    <span class="cb-label">ACCEPT <a href="#"
+                                            onclick="openModal('tos')">PROTOCOLS</a></span>
+                                </label>
+                            </div>
+
+                            <button type="submit" class="action-btn btn-secondary">
+                                <span class="bg-layer"></span>
+                                <span class="btn-content">GENERATE DOSSIER</span>
+                            </button>
+                        </form>
+
+                        <!-- QR -->
+                        <div id="form-qr" class="cyber-form qr-mode">
+                            <div class="qr-frame-box">
+                                <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=SEC-C-LOGIN-TOKEN"
+                                    alt="QR">
+                                <div class="scan-laser-bar"></div>
+                                <div class="corner c1"></div>
+                                <div class="corner c2"></div>
+                                <div class="corner c3"></div>
+                                <div class="corner c4"></div>
+                            </div>
+                            <p class="qr-text">SCAN WITH MOBILE AUTHENTICATOR</p>
+                            <div class="qr-timer">TOKEN EXPIRES: <span id="qr-countdown">59</span>s</div>
+                        </div>
+
+                    </div>
+
+                    <!-- Portal Footer -->
+                    <div class="portal-foot">
+                        <div class="sec-badge">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            <span>ENCRYPTION: AES-256</span>
+                        </div>
+                        <div class="ver-badge">BUILD 2025.12.16</div>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- COLUMN 3: STATUS + COMMS -->
+            <aside class="col col-right desktop-only" data-simplebar>
+
+                <!-- Servers -->
+                <div class="panel server-module">
+                    <div class="p-header">
+                        <i class="fa-solid fa-server"></i>
+                        <h3>SERVER_LATTICE</h3>
+                    </div>
+                    <div class="server-list custom-scrollbar">
+
+                        <div class="server-node status-good">
+                            <div class="sn-head">
+                                <span class="sn-name">US-EAST-VA</span>
+                                <span class="sn-ping">24ms</span>
+                            </div>
+                            <div class="sn-load-bar">
+                                <div class="fill" style="width: 25%"></div>
+                            </div>
+                            <div class="sn-status">OPERATIONAL</div>
+                        </div>
+
+                        <div class="server-node status-good">
+                            <div class="sn-head">
+                                <span class="sn-name">US-WEST-CA</span>
+                                <span class="sn-ping">45ms</span>
+                            </div>
+                            <div class="sn-load-bar">
+                                <div class="fill" style="width: 40%"></div>
+                            </div>
+                            <div class="sn-status">OPERATIONAL</div>
+                        </div>
+
+                        <div class="server-node status-warn">
+                            <div class="sn-head">
+                                <span class="sn-name">EU-GERMANY</span>
+                                <span class="sn-ping">115ms</span>
+                            </div>
+                            <div class="sn-load-bar">
+                                <div class="fill" style="width: 85%"></div>
+                            </div>
+                            <div class="sn-status">HIGH_LOAD</div>
+                        </div>
+
+                        <div class="server-node status-offline">
+                            <div class="sn-head">
+                                <span class="sn-name">ASIA-SEOUL</span>
+                                <span class="sn-ping">ERR</span>
+                            </div>
+                            <div class="sn-load-bar">
+                                <div class="fill" style="width: 0%"></div>
+                            </div>
+                            <div class="sn-status">MAINTENANCE</div>
+                        </div>
+
+                        <div class="server-node status-good">
+                            <div class="sn-head">
+                                <span class="sn-name">SA-BRAZIL</span>
+                                <span class="sn-ping">66ms</span>
+                            </div>
+                            <div class="sn-load-bar">
+                                <div class="fill" style="width: 50%"></div>
+                            </div>
+                            <div class="sn-status">OPERATIONAL</div>
+                        </div>
+
+                        <div class="server-node status-good">
+                            <div class="sn-head">
+                                <span class="sn-name">OCE-SYDNEY</span>
+                                <span class="sn-ping">72ms</span>
+                            </div>
+                            <div class="sn-load-bar">
+                                <div class="fill" style="width: 33%"></div>
+                            </div>
+                            <div class="sn-status">OPERATIONAL</div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Diagnostics -->
+                <div class="panel diag-module">
+                    <div class="p-header">
+                        <i class="fa-solid fa-microchip"></i>
+                        <h3>DIAGNOSTICS</h3>
+                    </div>
+                    <div class="diag-rows">
+                        <div class="d-row">
+                            <span class="d-lbl">CPU_CORE</span>
+                            <div class="hex-meter">
+                                <span class="h on"></span><span class="h on"></span><span class="h on"></span><span
+                                    class="h"></span><span class="h"></span>
+                            </div>
+                            <span class="d-val">45%</span>
+                        </div>
+                        <div class="d-row">
+                            <span class="d-lbl">GPU_TEMP</span>
+                            <div class="hex-meter">
+                                <span class="h on"></span><span class="h on"></span><span class="h on"></span><span
+                                    class="h on"></span><span class="h"></span>
+                            </div>
+                            <span class="d-val">72°C</span>
+                        </div>
+                        <div class="d-row">
+                            <span class="d-lbl">MEM_USE</span>
+                            <div class="hex-meter">
+                                <span class="h on"></span><span class="h on"></span><span class="h"></span><span
+                                    class="h"></span><span class="h"></span>
+                            </div>
+                            <span class="d-val">6GB</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Squad -->
+                <div class="panel squad-module">
+                    <div class="p-header">
+                        <i class="fa-solid fa-users"></i>
+                        <h3>ACTIVE_SQUAD</h3>
+                    </div>
+                    <div class="squad-list custom-scrollbar">
+                        <div class="squad-member online">
+                            <div class="avatar"><img
+                                    src="https://ui-avatars.com/api/?name=Viper&background=00ff88&color=000" alt="Av">
+                            </div>
+                            <div class="info">
+                                <span class="name">ViperOne</span>
+                                <span class="status">IN_LOBBY</span>
+                            </div>
+                            <button class="join-btn"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                        <div class="squad-member in-game">
+                            <div class="avatar"><img
+                                    src="https://ui-avatars.com/api/?name=Ghost&background=ff003c&color=fff" alt="Av">
+                            </div>
+                            <div class="info">
+                                <span class="name">Ghost_7</span>
+                                <span class="status">RANKED | 4-2</span>
+                            </div>
+                            <button class="join-btn disabled"><i class="fa-solid fa-eye"></i></button>
+                        </div>
+                        <div class="squad-member online">
+                            <div class="avatar"><img
+                                    src="https://ui-avatars.com/api/?name=Tank&background=fcee0a&color=000" alt="Av">
+                            </div>
+                            <div class="info">
+                                <span class="name">TankMaster</span>
+                                <span class="status">ONLINE</span>
+                            </div>
+                            <button class="join-btn"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chat -->
+                <div class="panel chat-module">
+                    <div class="p-header">
+                        <i class="fa-regular fa-comments"></i>
+                        <h3>COMMS_RELAY</h3>
+                        <span class="live-badge">LIVE</span>
+                    </div>
+                    <div class="chat-viewport custom-scrollbar" id="chat-box">
+                        <div class="msg sys">
+                            <span class="u">SYSTEM:</span>
+                            <span class="t">Secure channel established.</span>
+                        </div>
+                        <div class="msg">
+                            <span class="u r-gold">Slayer:</span>
+                            <span class="t">Anyone check the new shop?</span>
+                        </div>
+                        <div class="msg">
+                            <span class="u r-plat">Rogue:</span>
+                            <span class="t">LFG Ranked NA East +1</span>
+                        </div>
+                        <div class="msg">
+                            <span class="u r-blue">Newbie:</span>
+                            <span class="t">How do I unlock the Titan?</span>
+                        </div>
+                        <div class="msg">
+                            <span class="u r-gold">Slayer:</span>
+                            <span class="t">@Newbie Grind level 50 bro</span>
+                        </div>
+                    </div>
+                    <div class="chat-input-bar">
+                        <input type="text" placeholder="BROADCAST..." disabled>
+                        <button><i class="fa-solid fa-paper-plane"></i></button>
+                    </div>
+                </div>
+
+            </aside>
+
+        </main>
+
+
+        <!-- FOOTER -->
+        <footer class="bot-hud-bar">
+
+            <div class="f-section left">
+                <span class="prmt">ROOT@SEC_C:~$</span>
+                <span class="cmd-type blink-cursor">MONITORING_TRAFFIC_PACKETS...</span>
+            </div>
+
+            <div class="f-section center">
+                <div class="marquee-container">
+                    <div class="marquee-content">
+                        ::: WELCOME OPERATOR ::: SYSTEM INTEGRITY 100% ::: REPORT BUGS TO COMMAND ::: WEEKLY RESET IN 2
+                        DAYS ::: CHECK DISCORD FOR SCRIMS :::
+                    </div>
+                </div>
+            </div>
+
+            <div class="f-section right">
+                <a href="#" class="f-link" onclick="openModal('tos')">TERMS</a>
+                <span class="sep">|</span>
+                <a href="#" class="f-link" onclick="openModal('privacy')">PRIVACY</a>
+                <span class="sep">|</span>
+                <a href="#" class="f-link">SUPPORT</a>
+            </div>
+
+        </footer>
+
+    </div> <!-- END VIEWPORT WRAPPER -->
+
+
+    <!-- =========================================================================
+         MODALS
+    ========================================================================= -->
+    <div id="modal-tos" class="modal-backdrop">
+        <div class="modal-window">
+            <div class="mw-head">
+                <h3><i class="fa-solid fa-file-contract"></i> TERMS_OF_SERVICE</h3>
+                <button class="mw-close" onclick="closeModal('tos')"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="mw-body custom-scrollbar">
+                <h4>SECTION 1: CODE OF CONDUCT</h4>
+                <p>By accessing the SEC C mainframe, you agree to uphold the highest standards of tactical integrity.
+                </p>
+                <ul>
+                    <li>Zero tolerance for unauthorized software (Aimbots, Wallhacks).</li>
+                    <li>Respect fellow operators in Comms Relay.</li>
+                    <li>Do not exploit system glitches for rank gain.</li>
+                </ul>
+                <h4>SECTION 2: DATA COLLECTION</h4>
+                <p>We harvest telemetry data to optimize network routing and matchmaking algorithms.</p>
+                <div class="code-box">
+                    if (violation_detected) { execute_ban_protocol(); }
+                </div>
+                <p>Failure to comply will result in a permanent hardware ban.</p>
+                <h4>SECTION 3: VIRTUAL CURRENCY</h4>
+                <p>All in-game credits are non-transferable and have no real-world value.</p>
+            </div>
+            <div class="mw-foot">
+                <button class="mw-btn" onclick="closeModal('tos')">I ACKNOWLEDGE</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-privacy" class="modal-backdrop">
+        <div class="modal-window">
+            <div class="mw-head">
+                <h3><i class="fa-solid fa-user-secret"></i> PRIVACY_MANIFEST</h3>
+                <button class="mw-close" onclick="closeModal('privacy')"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="mw-body custom-scrollbar">
+                <p>Your digital footprint is encrypted using military-grade protocols.</p>
+                <h4>DATA POINTS:</h4>
+                <ul>
+                    <li>IP Address &amp; Geo-Location</li>
+                    <li>Hardware ID (HWID)</li>
+                    <li>Chat Logs &amp; Voice Transcripts</li>
+                </ul>
+                <p>We do not share operator identities with third-party factions unless required by Inter-Galactic Law.
+                </p>
+                <p>Right to be forgotten: Submit a request to Command to wipe your dossier.</p>
+            </div>
+            <div class="mw-foot">
+                <button class="mw-btn" onclick="closeModal('privacy')">CLOSE FILE</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- =========================================================================
+         SCRIPTS
+    ========================================================================= -->
+
+    <!-- Your main JS (from newer file name) -->
+    <script src="auth-ultimate.js"></script>
+
+    <!-- Legacy signup logic if needed -->
+    <script src="signup.js"></script>
+    <script src="script.js"></script>
+
+    <!-- Inline Boot + Clock -->
+    <script>
+        window.addEventListener('load', () => {
+            let pct = 0;
+            const bar = document.getElementById('bootBar');
+            const txt = document.getElementById('bootPct');
+
+            const interval = setInterval(() => {
+                pct += Math.floor(Math.random() * 5) + 2;
+                if (pct > 100) pct = 100;
+
+                bar.style.width = pct + '%';
+                txt.innerText = pct + '%';
+
+                if (pct === 100) {
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        const loader = document.getElementById('boot-sequence');
+                        loader.style.opacity = '0';
+                        setTimeout(() => { loader.style.display = 'none'; }, 800);
+                    }, 300);
+                }
+            }, 60);
+        });
+
+        function updateTime() {
+            const now = new Date();
+            const h = String(now.getHours()).padStart(2, '0');
+            const m = String(now.getMinutes()).padStart(2, '0');
+            const s = String(now.getSeconds()).padStart(2, '0');
+            document.getElementById('sys-time').textContent = `${h}:${m}:${s}`;
+        }
+        setInterval(updateTime, 1000);
+        updateTime();
+    </script>
+
+</body>
+
+</html>
