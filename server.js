@@ -56,9 +56,9 @@ app.use(express.static('public'));
 // API Routes
 app.use('/api/auth', authRoutes);
 
-// Serve signup page as default
+// Serve home page as default
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/public/signup.html');
+    res.sendFile(__dirname + '/public/index.html');
 });
 
 // Serve profile page

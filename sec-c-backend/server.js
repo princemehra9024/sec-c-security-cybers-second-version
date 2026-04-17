@@ -55,19 +55,19 @@ app.use('/api/auth', authRoutes);
 
 // Pages
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../signup.html'));
+  res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
 app.get('/signup', (req, res) => {
-  res.sendFile(path.join(__dirname, '../signup.html'));
+  res.sendFile(path.join(__dirname, '../public/signup.html'));
 });
 
 app.get('/profile', (req, res) => {
-  res.sendFile(path.join(__dirname, '../profile.html'));
+  res.sendFile(path.join(__dirname, '../public/profile.html'));
 });
 
 app.get('/index', (req, res) => {
-  res.sendFile(path.join(__dirname, '../index.html'));
+  res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
 // Health check
